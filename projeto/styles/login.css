@@ -1,0 +1,62 @@
+* {
+  font-family: 'Poppins', sans-serif;
+ }
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100vh;
+}
+  
+.login-form {
+    width: 50%;
+    padding: 10px;
+    border: none;
+    border-radius: 10px;
+    margin: 0 auto; /* adiciona margin 0 ao topo e ao fundo, e auto ao lado esquerdo e direito */
+
+    text-align: left; /* alinha o conteúdo do formulário a esquerda */
+
+}
+
+.login-form .form_title {
+  text-align: center;
+  align-items: center;
+  padding: 5%;
+}
+
+.register-section {
+    width: 50%;
+    padding: 20px;
+    text-align: center;
+    margin: 0 auto; /* adiciona margin 0 ao topo e ao fundo, e auto ao lado esquerdo e direito */
+    
+  text-align: center; /* centraliza o conteúdo da seção de registro */
+}
+
+.register-section .register_elements{
+  align-items: center;
+  padding-bottom: 10%;
+  margin-top: 30px;
+}
+
+/* Estilos para telas menores */
+@media (max-width: 768px) {
+    .login-form {
+      width: 100%;
+    }
+    .register-section {
+      width: 100%;
+    }
+}
+
+/* Estilos para telas de smartphone */
+@media (max-width: 480px) {
+    .login-form {
+      padding: 10px;
+    }
+    .register-section {
+      padding: 10px;
+    }
+}
