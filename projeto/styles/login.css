@@ -1,62 +1,177 @@
 * {
   font-family: 'Poppins', sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; /* Inclui padding e borda no cálculo da largura e altura */
  }
 
-.container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    height: 100vh;
-}
-  
-.login-form {
-    width: 50%;
-    padding: 10px;
-    border: none;
-    border-radius: 10px;
-    margin: 0 auto; /* adiciona margin 0 ao topo e ao fundo, e auto ao lado esquerdo e direito */
-
-    text-align: left; /* alinha o conteúdo do formulário a esquerda */
-
+ html{
+  color: white;
+  text-align: center;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  place-items: center; /* Centraliza horizontalmente e verticalmente */
 }
 
-.login-form .form_title {
+body{
+  padding: min(10px, 7%);
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+
+a{
+  color: #fff;
+  text-decoration: none;
+}
+
+.container{
+  top: 0;          /* Gruda o contêiner no topo da tela */
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+  gap: 100px;
+  align-items: center;
+  height: 100vh;
+  margin: 0 auto;
+}
+
+.box{
+  padding: 2em;
+  border: 1px solid red;
+}
+
+.form_title{
+  text-align: center;   
+}
+
+.register-section,
+.register-header{
   text-align: center;
   align-items: center;
-  padding: 5%;
+  margin: 20px; /* Espaçamento em todos os lados do elemento */
 }
 
-.register-section {
-    width: 50%;
-    padding: 20px;
-    text-align: center;
-    margin: 0 auto; /* adiciona margin 0 ao topo e ao fundo, e auto ao lado esquerdo e direito */
-    
-  text-align: center; /* centraliza o conteúdo da seção de registro */
+.register-section img{
+  width: 60%; /* A largura será 100% do contêiner pai */
+  height: auto; /* A altura será ajustada automaticamente para manter a proporção */
 }
 
-.register-section .register_elements{
+.register-section h2{
+  font-size: 38px;
+  margin: 20px; /* Espaçamento em todos os lados do elemento */
+}
+
+.register-section h3{
+  font-size: 20px;
+  margin: 20px; /* Espaçamento em todos os lados do elemento */
+}
+
+.register-title{
+  text-align: center;
+  font-size: 14px;
+  font-weight: bold; /* Define o texto como negrito */
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* Cria duas colunas de largura igual */
+  gap: 20px; /* Espaço entre os itens */
+  margin-bottom: 20px; /* Espaço entre grupos de inputs */
+}
+
+.form-item label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.form-item input,
+.form-item select {
+  width: 100%; /* Faz com que o input ocupe toda a largura disponível */
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="date"],
+select {
+  width: 100%;
+  max-width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+.progress-container {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 600px;
+  margin: 20px auto;
+}
+
+.progress-box {
+  width: 80px;
+  height: 20px;
+  background-color: #ccc; /* Cinza */
+  border-radius: 5px;
+}
+
+.active {
+  background-color: #007BFF; /* Azul quando ativo */
+}
+
+button {
+  padding: 10px 15px;
+  background-color: #007BFF;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  cursor: pointer;
+  margin-right: 10px;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+.form-section {
+  display: none; /* As seções começam invisíveis */
+}
+
+#section1 {
+  display: block; /* Mostra a primeira seção inicialmente */
+}
+
+.checkbox-group {
+  display: flex;
+  flex-direction: column; /* Organiza os checkboxes verticalmente */
+  gap: 10px; /* Espaçamento entre os checkboxes */
+}
+
+.checkbox-group label {
+  display: flex;
   align-items: center;
-  padding-bottom: 10%;
-  margin-top: 30px;
 }
 
-/* Estilos para telas menores */
-@media (max-width: 768px) {
-    .login-form {
-      width: 100%;
-    }
-    .register-section {
-      width: 100%;
-    }
+.checkbox-group input[type="checkbox"] {
+  margin-right: 10px; /* Espaço entre a caixinha e o texto */
 }
 
-/* Estilos para telas de smartphone */
-@media (max-width: 480px) {
-    .login-form {
-      padding: 10px;
-    }
-    .register-section {
-      padding: 10px;
-    }
-}

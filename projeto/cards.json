@@ -1,0 +1,32 @@
+{
+  "courses": [
+    {
+      "image": "http://localhost/projeto/Images/cards/desenvolvimento-web.jpg",
+      "title": "Desenvolvimento Web",
+      "date": "2024-09-15",
+      "time": "18:00",
+      "location": "Online"
+    },
+    {
+      "image": "http://localhost/projeto/Images/cards/design-grafico.jpg",
+      "title": "Workshop de UX Research",
+      "date": "2024-09-20",
+      "time": "10:00",
+      "location": "São Paulo, SP"
+    },
+    {
+      "image": "http://localhost/projeto/Images/cards/marketing-digital.jpg",
+      "title": "Curso de Marketing Digital",
+      "date": "2024-09-25",
+      "time": "14:00",
+      "location": "Rio de Janeiro, RJ"
+    },
+    {
+      "image": "http://localhost/projeto/Images/cards/design-grafico.jpg",
+      "title": "Minicurso de Design Gráfico",
+      "date": "2024-09-25",
+      "time": "14:00",
+      "location": "Rio de Janeiro, RJ"
+    }
+  ]
+}
