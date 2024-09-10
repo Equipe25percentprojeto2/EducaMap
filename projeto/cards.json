@@ -2,31 +2,43 @@
   "courses": [
     {
       "image": "http://localhost/projeto/Images/cards/desenvolvimento-web.jpg",
-      "title": "Desenvolvimento Web",
+      "title": "Desenvolvimento de páginas web do zero com HTML 5 + CSS",
       "date": "2024-09-15",
       "time": "18:00",
-      "location": "Online"
+      "location": "Online",
+      "areas": ["Desenvolvimento"]
     },
     {
-      "image": "http://localhost/projeto/Images/cards/design-grafico.jpg",
+      "image": "http://localhost/projeto/Images/cards/ux-research.jpg",
       "title": "Workshop de UX Research",
       "date": "2024-09-20",
       "time": "10:00",
-      "location": "São Paulo, SP"
+      "location": "Bloco acadêmico de Sistemas e Mídias Digitais - Campus do Pici, Fortaleza, Ceará",
+      "areas": ["UX/UI", "Design"]
     },
     {
       "image": "http://localhost/projeto/Images/cards/marketing-digital.jpg",
       "title": "Curso de Marketing Digital",
       "date": "2024-09-25",
       "time": "14:00",
-      "location": "Rio de Janeiro, RJ"
+      "location": "Online",
+      "areas": ["Marketing"]
     },
     {
       "image": "http://localhost/projeto/Images/cards/design-grafico.jpg",
       "title": "Minicurso de Design Gráfico",
       "date": "2024-09-25",
       "time": "14:00",
-      "location": "Rio de Janeiro, RJ"
+      "location": "Rede CUCA - barra do ceará, Fortaleza, Ceará",
+      "areas": ["Design"]
+    },
+    {
+      "image": "http://localhost/projeto/Images/cards/analise-dados.jpg",
+      "title": "Análise de Dados para Iniciantes",
+      "date": "2024-09-25",
+      "time": "14:00",
+      "location": "Rede CUCA - barra do ceará, Fortaleza, Ceará",
+      "areas": ["Análise"]
     }
   ]
 }

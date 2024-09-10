@@ -18,3 +18,29 @@ window.addEventListener('click', function(event) {
         dropdownIcon.classList.remove('rotate');
     }
 });
+
+// Selecionar todos os dropdowns
+document.querySelectorAll('.filter-button').forEach(button => {
+    button.addEventListener('click', function(e) {
+        // Fechar outros dropdowns abertos
+        document.querySelectorAll('.dropdown-content').forEach(content => {
+            if (content !== this.nextElementSibling) {
+                content.classList.remove('show');
+            }
+        });
+
+        // Abrir/fechar o dropdown correspondente ao botão clicado
+        const dropdownContent = this.nextElementSibling;
+        dropdownContent.classList.toggle('show');
+
+        // Impedir que o clique feche imediatamente após abrir
+        e.stopPropagation();
+    });
+});
+
+// Fechar o dropdown ao clicar fora dele
+window.addEventListener('click', function() {
+    document.querySelectorAll('.dropdown-content').forEach(content => {
+        content.classList.remove('show');
+    });
+});

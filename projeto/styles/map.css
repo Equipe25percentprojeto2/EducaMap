@@ -1,0 +1,14 @@
+body{
+    overflow: hidden;
+}
+
+.map-section {
+    height: calc(100% - 60px); /* Subtrai a altura da navbar */
+    width: 100%;
+}
+
+/* Garante que o mapa ocupe 100% do contêiner */
+#map {
+    width: 1500px;
+    height: 700px;
+}
