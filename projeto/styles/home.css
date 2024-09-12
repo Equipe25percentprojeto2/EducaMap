@@ -39,7 +39,7 @@ body {
     transform: translateY(-50%);
     font-size: 20px;
 }
-
+ 
 /* Estilo do input */
 .search-bar input {
     width: 100%;
@@ -81,10 +81,45 @@ body {
     font-size: 16px;
 }
 
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+/* Estilo do conteúdo do dropdown */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: white;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.1);
+    z-index: 1;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+/* Estilo das opções do dropdown */
+.dropdown-content a {
+    color: #333;
+    padding: 10px 15px;
+    text-decoration: none;
+    display: block;
+    font-size: 14px;
+}
+
+.dropdown-content a:hover {
+    background-color: #f1f1f1;
+}
+
+.dropdown-content.show {
+    display: block;
+}
+
 .dropdown-btn {
     background: none;
     cursor: pointer;
     display: flex;
+    border: none;
 }
 
 .dropdown-menu {
@@ -143,7 +178,6 @@ body {
     background-color: #d3d3d3; /* Cor cinza claro */
     position: relative; /* Posicionamento relativo (opcional, se precisar ajustar a posição) */
     margin: 20px;
-    
 }
 
 .grid-container {
@@ -153,27 +187,310 @@ body {
     padding: 20px; /* Padding ao redor do grid */
 }
 
+p{
+    margin-left: 20px
+}
+
+#courses-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 colunas */
+    gap: 20px;
+    padding: 20px;
+    align-items: start; /* Garante que todos os cards comecem no topo */
+}
+
 .course-card {
-    border: 1px solid #ccc; /* Adiciona uma borda fina */
-    padding: 20px; /* Espaçamento interno */
-    margin-bottom: 20px; /* Espaço entre os cards */
-    border-radius: 8px; /* Bordas arredondadas */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra para destacar o card */
-    max-width: 300px; /* Tamanho máximo do card */
-    background-color: #fff; /* Cor de fundo */
-  }
+    display: flex;
+    flex-direction: column; /* Organiza o conteúdo em colunas */
+    justify-content: space-between; /* Distribui o conteúdo entre o topo e o final */
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    min-height: 450px; /* Define uma altura mínima para os cards */
+}
+
+/* Responsividade */
+@media (max-width: 1024px) {
+    #courses-container {
+        grid-template-columns: repeat(2, 1fr); /* 2 cards por linha em telas menores */
+    }
+}
+
+@media (max-width: 768px) {
+    #courses-container {
+        grid-template-columns: 1fr; /* 1 card por linha em telas muito pequenas */
+    }
+}
+
+.course-card:hover{
+    transform: scale(1.03);
+}
+
+.course-card img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+
+.course-card h2 {
+    font-size: 20px;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.course-card p {
+    font-size: 13px;
+    color: #000;
+    margin-bottom: 8px;
+}
+
+.areas-icons-container {
+    display: flex;
+    justify-content: space-between; /* Alinha as áreas e os ícones na mesma linha */
+    align-items: center;
+    margin-top: auto; /* Empurra essa seção para o final do card */
+}
+
+.areas {
+    display: flex;
+    flex-wrap: wrap; /* Permite que as tags quebrem linha, se necessário */
+    gap: 8px;
+}
+
+.areas .tag {
+    display: inline-block;
+    padding: 5px 10px;
+    background-color: #EAB1BD;
+    border-radius: 16px;
+    font-size: 12px;
+    color: #333;
+}
+
+
+.icons {
+    display: flex;
+    gap: 10px; /* Espaçamento entre os ícones */
+}
+
+.icons .material-icons {
+    font-size: 24px;
+    cursor: pointer;
+    color: #2E41DD;
+}
+
+.icons .favorite-icon {
+    color: #CC415E; /* Cor do ícone de favorito */
+}
+
+.icons .material-icons:hover {
+    transform: scale(1.1);
+}
+
+.card-info {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.card-info .material-icons,
+.card-info .material-icons-round {
+    font-size: 24px;
+    color: #2E41DD;
+    margin-right: 8px; /* Espaço entre o ícone e o texto */
+}
+
+.card-info p {
+    display: flex;
+    align-items: center; /* Alinha o texto e o ícone verticalmente */
+    margin: 0; /* Remove a margem padrão dos parágrafos */
+}
+
+.page-container {
+    display: grid;
+    grid-template-columns: 1fr 300px; /* Conteúdo principal (1fr) e barra de ads com 300px */
+    gap: 20px; /* Espaçamento entre as colunas */
+    padding: 20px;
+}
+
+.main-content {
+    padding: 0px;
+    border-radius: 8px;
+    min-height: 300px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+h3 {
+    margin-top: 0;
+    margin-top: 20px; /* Espaçamento entre o título e o conteúdo abaixo */
+    font-size: 24px; /* Ajuste o tamanho da fonte conforme necessário */
+    color: #333; /* Ajuste a cor conforme necessário */
+    margin-left: 20px;
+}
   
-  .course-card img {
-    width: 300px; 
-    height: 200px; 
-    border-radius: 4px; /* Bordas arredondadas para a imagem */
-  }
-  
-  .course-card h2 {
+
+.ads-sidebar {
+    background-color: #f0f0f0; /* Fundo para a barra de anúncios */
+    padding: 20px;
+    border-left: 2px solid #ddd; /* Separação visual entre conteúdo e ads */
+    border-radius: 8px;
+}
+
+.ad-space {
+    background-color: #e0e0e0;
+    border: 1px solid #ccc;
+    padding: 20px;
+    text-align: center;
+    margin-bottom: 20px; /* Espaço entre os anúncios */
+}
+
+
+/* Estilo para a search-filters */
+.search-filters {
+    margin-bottom: 20px; /* Espaço abaixo dos filtros */
+    margin-left: 20px;
+    max-width: 96%; /* Largura máxima da seção de busca */
+}
+
+/* Estilização do container da busca */
+.search-container {
+    margin-bottom: 20px; /* Espaço abaixo do container de busca */
+    text-align: left; /* Alinha todos os elementos dentro à esquerda */
+}
+
+/* Estilização para o título */
+.search-container h1 {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 15px; /* Espaçamento abaixo do título */
+    text-align: left; /* Alinha o título à esquerda */
+}
+
+/* Estilização da barra de busca */
+.search-filter {
+    display: flex;
+    align-items: center; /* Alinha o ícone e o campo de texto no centro verticalmente */
+    border: 1px solid #ccc; /* Borda ao redor da barra de busca */
+    border-radius: 30px; /* Bordas arredondadas */
+    padding: 10px; /* Espaçamento interno */
+    max-width: 100%; /* Garante que a barra de busca ocupe toda a largura disponível */
+}
+
+.search-filter span {
+    margin-right: 10px; /* Espaçamento entre o ícone e o campo de texto */
+}
+
+.search-filter input[type="text"] {
+    flex: 1; /* Faz o campo de texto ocupar o espaço restante */
+    border: none; /* Remove a borda padrão do input */
+    font-size: 16px; /* Tamanho do texto no campo de busca */
+    padding: 6px; /* Espaçamento interno no campo de texto */
+    border-radius: 16px; /* Bordas arredondadas */
+    outline: none; /* Remove o contorno padrão */
+}
+
+.search-filter input[type="text"]::placeholder {
+    color: #888; /* Cor do texto placeholder */
+}
+
+.filters-container {
+    display: flex;
+    justify-content: space-between; /* Alinha os botões de filtro à esquerda e o botão Filtrar à direita */
+    align-items: center; /* Garante que todos os botões fiquem alinhados verticalmente */
+    gap: 20px; /* Espaçamento entre os grupos */
+}
+
+/* Estilização dos botões de filtro */
+.filters {
+    display: flex;
+    gap: 15px; /* Espaçamento entre os botões de filtro */
+}
+
+.filter-button {
+    padding: 5px 10px;
+    background-color: transparent;
+    border: 1px solid #2E41DD;
+    color: #2E41DD;
+    border-radius: 16px;
+    cursor: pointer;
+    font-size: 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.filter-button:hover {
+    background-color: #2E41DD; /* Fundo azul ao passar o mouse */
+    color: white; /* Cor do texto ao passar o mouse */
+    border-color: #2E41DD; /* Borda azul ao passar o mouse */
+}
+
+.filter-button .material-symbols-outlined {
+    font-size: 25px;
+    color: #2E41DD;
+}
+
+.filter-button:hover .material-symbols-outlined {
+    color: white;
+}
+
+.filter-submit {
+    padding: 10px 20px;
+    background-color: #CC415E;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.filter-submit:hover {
+    background-color: #A32E48;
+}
+
+.courses-box{
+    text-align: left; /* Alinha todos os elementos dentro à esquerda */
+}
+
+#areas-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 colunas */
+    gap: 20px; /* Espaçamento entre os cards */
+    padding: 20px;
+}
+
+.area-card {
+    display: flex;
+    flex-direction: column; /* Alinha os elementos verticalmente */
+    justify-content: space-between; /* Faz o título ir para o final do card */
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    overflow: hidden; /* Garante que conteúdo não vaze do card */
+    height: 250px; /* Define uma altura fixa para os cards */
+}
+
+.area-card:hover{
+    transform: scale(1.03);
+}
+
+.area-card img {
+    width: 100%; /* Faz a imagem ocupar toda a largura do card */
+    height: 200px; /* Define uma altura fixa */
+    object-fit: cover; /* Garante que a imagem preencha o espaço sem distorção */
+    border-radius: 8px; /* Bordas arredondadas no topo */
+}
+
+.area-card h2 {
     font-size: 18px;
-    margin: 10px 0; /* Espaçamento em torno do título */
-  }
-  
-  .course-card p {
-    margin: 5px 0; /* Espaçamento entre os parágrafos */
-  }
+    color: #333;
+    text-align: center;
+    margin: 10px 0 0 0; /* Espaço acima do título */
+    flex-shrink: 0; /* Garante que o título não encolha */
+}
+

@@ -1,0 +1,59 @@
+{
+  "courses": [
+    {
+      "id": "0001",
+      "image": "http://localhost/projeto/Images/cards/desenvolvimento-web.jpg",
+      "title": "Desenvolvimento de páginas web do zero com HTML 5 + CSS",
+      "date": "2024-09-15",
+      "time": "18:00",
+      "location": "Online",
+      "areas": ["Desenvolvimento"],
+      "instituicao": "Institudo UFC Virtual",
+      "descricao": "Aprenda a criar páginas web do zero usando HTML 5 e CSS. Este curso aborda desde o básico até técnicas avançadas para desenvolver sites responsivos e interativos."
+    },
+    {
+      "id": "0002",
+      "image": "http://localhost/projeto/Images/cards/ux-research.jpg",
+      "title": "Workshop de UX Research",
+      "date": "2024-09-20",
+      "time": "10:00",
+      "location": "Bloco acadêmico de Sistemas e Mídias Digitais - Campus do Pici, Fortaleza, Ceará",
+      "areas": ["UX/UI", "Design"],
+      "instituicao": "Institudo UFC Virtual",
+      "descricao": "Participe deste workshop sobre pesquisa de UX e descubra métodos e ferramentas para melhorar a experiência do usuário em projetos de design."
+    },
+    {
+      "id": "0003",
+      "image": "http://localhost/projeto/Images/cards/marketing-digital.jpg",
+      "title": "Curso de Marketing Digital",
+      "date": "2024-09-25",
+      "time": "14:00",
+      "location": "Online",
+      "areas": ["Marketing"],
+      "instituicao": "Universidade Federal do Ceará",
+      "descricao": "Entenda as principais estratégias de marketing digital, incluindo SEO, SEM e marketing de conteúdo. Ideal para quem quer expandir suas habilidades de marketing online."
+    },
+    {
+      "id": "0004",
+      "image": "http://localhost/projeto/Images/cards/design-grafico.jpg",
+      "title": "Minicurso de Design Gráfico",
+      "date": "2024-09-25",
+      "time": "14:00",
+      "location": "Rede CUCA - barra do ceará, Fortaleza, Ceará",
+      "areas": ["Design"],
+      "instituicao": "Juventude Digital",
+      "descricao": "Explore os fundamentos do design gráfico e aprenda a usar ferramentas essenciais como Adobe Illustrator e Photoshop para criar designs impactantes."
+    },
+    {
+      "id": "0005",
+      "image": "http://localhost/projeto/Images/cards/analise-dados.jpg",
+      "title": "Análise de Dados para Iniciantes",
+      "date": "2024-09-25",
+      "time": "14:00",
+      "location": "Rede CUCA - barra do ceará, Fortaleza, Ceará",
+      "areas": ["Análise"],
+      "instituicao": "Juventude Digital",
+      "descricao": "Descubra as principais técnicas e ferramentas para análise de dados. Este curso é ideal para quem está começando a explorar o mundo dos dados e da análise estatística."
+    }
+  ]
+}

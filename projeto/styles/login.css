@@ -39,7 +39,6 @@ a{
 
 .box{
   padding: 2em;
-  border: 1px solid red;
 }
 
 .form_title{
@@ -76,7 +75,7 @@ a{
 
 h2 {
   text-align: center;
-  margin-bottom: 20px;
+  margin: 20px auto;
 }
 
 .form-group {
@@ -134,7 +133,7 @@ select {
 }
 
 .active {
-  background-color: #007BFF; /* Azul quando ativo */
+  background-color: #2E41DD; /* Azul quando ativo */
 }
 
 button {
@@ -142,14 +141,71 @@ button {
   background-color: #007BFF;
   color: white;
   border: none;
-  border-radius: 4px;
+  border-radius: 12px;
   font-size: 16px;
   cursor: pointer;
   margin-right: 10px;
 }
 
+.button-container {
+  display: flex;
+  justify-content: space-between;
+  width: 100%; /* O contêiner ocupará toda a largura disponível */
+  margin-top: 20px; /* Espaço entre os botões e os campos de input */
+}
+
+.label-required{
+  color: #CC415E;
+}
+
+.btn-first,
+.btn-next{
+  Background-color: #2E41DD;
+  border-radius: 8px;
+  max-width: 30%;
+  width: 100%;
+  border: none;
+}
+
 button:hover {
-  background-color: #0056b3;
+  background-color: #2636B2;
+}
+
+.btn-second{
+  Background-color: #CC415E;
+  border-radius: 8px;
+  max-width: 60%;
+  width: 100%;
+  border: none;
+}
+
+.btn-second:hover{
+  Background-color: #A3354C;
+}
+
+.btn-prev{
+  background-color: transparent;
+  color: #2E41DD;
+  border: 1px solid #2E41DD;
+  border-radius: 8px;
+  max-width: 30%;
+  width: 100%;
+}
+
+.btn-prev:hover{
+  background-color: #2E41DD;
+  color: white;
+}
+
+.main-p {
+  font-size: 24px; /* Tamanho maior para o texto principal */
+  font-weight: bold; /* Pode usar negrito para destacar */
+  margin-bottom: 10px; /* Espaçamento entre os dois parágrafos */
+}
+
+.sec-p {
+  font-size: 16px; /* Tamanho menor para o texto secundário */
+  color: #666; /* Cor cinza clara para diferenciar */
 }
 
 .form-section {
@@ -173,5 +229,86 @@ button:hover {
 
 .checkbox-group input[type="checkbox"] {
   margin-right: 10px; /* Espaço entre a caixinha e o texto */
+}
+
+.is-invalid {
+  border-color: red;
+}
+
+.is-invalid::placeholder {
+  color: red;
+}
+
+/* Estilo padrão da caixa de seleção */
+.custom-checkbox {
+  display: inline-block;
+  position: relative;
+  padding-left: 25px;
+  cursor: pointer;
+  font-size: 16px;
+  user-select: none;
+}
+
+/* Esconde o checkbox original */
+.custom-checkbox input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+
+/* Caixa de seleção customizada */
+.custom-checkbox .checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 20px;
+  width: 20px;
+  background-color: #eee;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+}
+
+/* Quando o checkbox é marcado */
+.custom-checkbox input:checked ~ .checkmark {
+  background-color: #2E41DD;
+  border-color: #2E41DD;
+}
+
+/* Estilo do ícone dentro da caixa quando está marcada */
+.custom-checkbox .checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Mostra o ícone quando marcado */
+.custom-checkbox input:checked ~ .checkmark:after {
+  display: block;
+}
+
+/* Estilo do ícone (um tick ou visto) */
+.custom-checkbox .checkmark:after {
+  left: 6px;
+  top: 2px;
+  width: 6px;
+  height: 12px;
+  border: solid white;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+
+.final-link {
+  color: white; /* Garante que o texto seja branco */
+  text-decoration: none; /* Remove o sublinhado */
+}
+
+.final-link:visited {
+  color: white; /* Mantém o texto branco após o clique */
+  text-decoration: none;
+}
+
+.final-link:hover {
+  color: white; /* Mantém o texto branco após o clique */
+  text-decoration: none;
 }
 

@@ -1,0 +1,119 @@
+/* Reset de estilo básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Estilo do corpo da página */
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #f9f9f9;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* Container principal da página de detalhes */
+.course-details-container {
+    max-width: 1200px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+/* Estilo da seção de detalhes do curso */
+.course-details {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* Estilo do cabeçalho do curso (imagem e informações) */
+.course-header {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+/* Estilo da imagem do curso */
+.course-image {
+    width: 300px;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilo das informações do curso (título e descrição) */
+.course-info {
+    flex: 1;
+}
+
+.course-info h1 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+    color: #2E41DD;
+}
+
+.course-info p {
+    font-size: 1.1rem;
+    color: #666;
+}
+
+/* Meta informações do curso (data, hora, local) */
+.course-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.course-meta p {
+    font-size: 1rem;
+    color: #444;
+}
+
+.course-meta p strong {
+    color: #2E41DD;
+}
+
+/* Estilo dos botões de ação */
+.course-actions {
+    margin-top: 30px;
+    display: flex;
+    gap: 15px;
+}
+
+.action-button {
+    padding: 10px 20px;
+    font-size: 1rem;
+    font-weight: 500;
+    color: #fff;
+    background-color: #2E41DD;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+/* Estilo para a seção de informações gerais */
+.info-section {
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+/* Estilo para a seção de instituição */
+.institution-section {
+    display: flex;
+    justify-content: space-between;
+}
+
+.institution-details {
+    flex: 1;
+    padding: 20px;
+}
+
+.institution-placeholder {
+    width: 300px; /* Ajuste o tamanho conforme necessário */
+    background-color: #e0e0e0; /* Cor cinza para o espaço reservado */
+    height: 100%; /* Ajuste a altura conforme necessário */
+}

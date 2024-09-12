@@ -1,0 +1,82 @@
+/* Garante que o body ocupe toda a tela e que nada seja cortado */
+body, html {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden; /* Previne a rolagem desnecessária */
+}
+
+/* Estilo da navbar */
+.navbar {
+    position: relative;
+    z-index: 1000; /* Garante que a navbar esteja sempre acima da sidebar e do mapa */
+}
+
+/* Sidebar Container */
+.sidebar {
+    width: 250px; /* Ajuste conforme necessário */
+    height: calc(100vh - 60px); /* Ajuste conforme necessário */
+    background-color: #f8f9fa; /* Cor de fundo da sidebar */
+    padding: 20px; /* Espaçamento interno */
+    position: fixed; /* Fixa a sidebar na lateral esquerda */
+    top: 60px; /* Ajuste conforme necessário para não sobrepor a navbar */
+    left: 0; /* Posiciona à esquerda */
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centraliza horizontalmente */
+    overflow-y: auto; /* Adiciona rolagem se necessário */
+}
+
+/* Título da Sidebar */
+.sidebar h1 {
+    font-size: 1.5rem;
+    margin-bottom: 10px; /* Espaçamento abaixo do título */
+}
+
+/* Subtítulo da Sidebar */
+.sidebar h2 {
+    font-size: 1rem;
+    margin-bottom: 20px; /* Espaçamento abaixo do subtítulo */
+    text-align: center; /* Centraliza o texto */
+}
+
+/* Input da Sidebar */
+.sidebar input {
+    width: 100%; /* Ajusta a largura do input */
+    padding: 10px; /* Espaçamento interno do input */
+    margin-bottom: 20px; /* Espaçamento abaixo do input */
+    border: 1px solid #ccc; /* Cor da borda do input */
+    border-radius: 4px; /* Bordas arredondadas */
+}
+
+/* Botão Sair */
+.sidebar button {
+    width: 100%; /* Ajusta a largura do botão */
+    padding: 10px; /* Espaçamento interno do botão */
+    background-color: #2E41DD; /* Cor de fundo do botão */
+    color: #fff; /* Cor do texto do botão */
+    border: none; /* Remove a borda do botão */
+    border-radius: 4px; /* Bordas arredondadas */
+    cursor: pointer; /* Cursor de ponteiro */
+}
+
+/* Adicione um efeito de hover no botão */
+.sidebar button:hover {
+    background-color: #1d2a7f; /* Cor do botão ao passar o mouse */
+}
+
+/* Ajustando a área do mapa */
+.map-section {
+    position: absolute;
+    top: 60px; /* Abaixo da navbar */
+    left: 300px; /* A partir do final da sidebar */
+    width: calc(100% - 300px); /* Preenche o espaço restante ao lado da sidebar */
+    height: calc(100% - 60px); /* Preenche a altura total abaixo da navbar */
+    z-index: 1;
+}
+
+/* Garante que o mapa ocupe 100% do contêiner */
+#map {
+    width: 100%;
+    height: 100%;
+}

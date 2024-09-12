@@ -25,16 +25,22 @@
         <form> <!-- Formulário de login -->
           
           <div class="form-group">
-            <label for="email">Email</label>
+            <div class="label-forms">
+                <label for="nome">Email</label>
+                <label class="label-required">(Campo obrigatório)
+            </div>
             <input type="email" name="email" id="email" class="form-control" placeholder="Digite seu email">
           </div>
 
           <div class="form-group">
-            <label for="senha">Senha</label>
+            <div class="label-forms">
+              <label for="nome">Senha</label>
+              <label class="label-required">(Campo obrigatório)
+            </div>
             <input type="password" name="pass" id="senha" class="form-control" placeholder="Digite sua senha">
           </div>
 
-          <button type="submit" class="btn btn-primary">Entrar</button>
+          <button type="submit" class="btn-first">Entrar</button>
           <a href="#" class="float-right">Esqueci a senha</a>
 
         </form>
@@ -49,7 +55,7 @@
           <h2>Bem-vindo!</h2>
           <h3>Ainda não possui uma conta?</h3>
         </div>
-        <button class="btn btn-success" onclick="window.location.href='http:/projeto/pages/cadastro.php'">Cadastre-se</button>
+        <button class="btn-second" onclick="window.location.href='http:/projeto/pages/cadastro.php'">Cadastre-se</button>
       </div>
     </div>
 

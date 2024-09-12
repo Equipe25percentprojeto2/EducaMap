@@ -5,27 +5,24 @@
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />-->
+
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-    
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />    
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
-
-    <link rel="stylesheet" href="http://localhost/projeto/styles/map.css">
+    <link rel="stylesheet" href="http://localhost/projeto/styles/info-curso.css"> <!-- Estilos da página de detalhes -->
     <link rel="stylesheet" href="http://localhost/projeto/styles/home.css">
+
+    <title>Detalhes do Curso</title>
 
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
     </style>
 
-    <title>EducaMap</title>
-
 </head>
 
 <body>
-    
+
     <nav class="navbar">
         <div class="logo">
             <img src="../Images/logos/Logo.png" alt="Logo">
@@ -54,25 +51,35 @@
         </div>
     </nav>
 
-    <div class="sidebar">
-        <h1 class="sidebar-title">Localizar</h1>
-        <h3 class="sidebar-subtitle">Encontre cursos e eventos próximos da sua região</h3>
-        
-        <input type="text" class="sidebar-input" placeholder="Digite sua localização" />
-        
-        <button class="sidebar-btn">Sair</button>
+    <div class="page-container">
+        <div class="main-content">
+            <!-- Seção de informações gerais -->
+            <div class="info-section">
+                <div class="course-details">
+                    <img id="course-image" src="" alt="Imagem do Curso">
+                    <h1 id="course-title"></h1>
+                    <p id="course-description"></p>
+                    <p><strong>Data:</strong> <span id="course-date"></span></p>
+                    <p><strong>Hora:</strong> <span id="course-time"></span></p>
+                    <p><strong>Local:</strong> <span id="course-location"></span></p>
+                    <p><strong>Instituição:</strong> <span id="course-institution"></span></p>
+                </div>
+            </div>
+
+            <!-- Seção de instituição com espaço reservado -->
+            <div class="institution-section">
+                <div class="institution-details">
+                    <!-- Informações sobre a instituição (se houver) -->
+                </div>
+                <div class="institution-placeholder">
+                    <!-- Espaço reservado com retângulo cinza -->
+                </div>
+            </div>
+        </div>
     </div>
 
-    <div class="map-section">
-        <div id="map"></div>
-    </div>
-
-    <!-- Adicionar o Leaflet JS -->
-    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
-    
-    <!-- Referenciar o script externo -->
-    <script src="http://localhost/projeto/scripts/map.js"></script> <!-- Certifique-se de colocar o caminho correto para o arquivo -->
-    <script src="http://localhost/projeto/scripts/home.js"></script>
+    <!-- Script JS para carregar os detalhes -->
+    <script src="http://localhost/projeto/scripts/info-curso.js"></script>
 
 </body>
 </html>

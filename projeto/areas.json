@@ -1,0 +1,32 @@
+{
+    "areas": [
+        {
+          "image-area": "http://localhost/projeto/Images/areas/analise-de-dados.png",  
+          "title-area": "Análise de dados"
+        },
+
+        {
+            "image-area": "http://localhost/projeto/Images/areas/design-digital.jpg",  
+            "title-area": "Design digital"
+        },
+
+        {
+            "image-area": "http://localhost/projeto/Images/areas/desenvolvimento-de-sistemas.jpg",  
+            "title-area": "Desenvolvimento de sistemas"
+        },
+
+        {
+            "image-area": "http://localhost/projeto/Images/areas/seguranca-da-informacao.jpg",  
+            "title-area": "Segurança da informação"
+        },
+
+        {
+            "image-area": "http://localhost/projeto/Images/areas/gestao-de-projeto.jpg",  
+            "title-area": "Gestão de projetos"
+        },
+        {
+            "image-area": "http://localhost/projeto/Images/areas/informatica.jpg",  
+            "title-area": "Informática"
+        }
+    ]
+}
