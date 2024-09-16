@@ -31,8 +31,8 @@ fetch('http://localhost/projeto/cursos.json')
                 <div class="areas-icons-container">
                     <div class="areas">${areas}</div>
                     <div class="icons">
-                        <span class="material-icons save-icon">bookmark_border</span>
-                        <span class="material-icons favorite-icon">favorite_border</span>
+                        <span class="material-icons save-icon">${course.isSaved ? 'bookmark' : 'bookmark_border'}</span>
+                        <span class="material-icons favorite-icon">${course.isFavorite ? 'favorite' : 'favorite_border'}</span>
                     </div>
                 </div>
             `;
@@ -41,6 +41,27 @@ fetch('http://localhost/projeto/cursos.json')
             courseCard.addEventListener('click', () => {
                 localStorage.setItem('selectedCourseId', course.id); // Salva o ID no localStorage
                 window.location.href = `info-curso.php?id=${course.id}`; // Redireciona para a página de detalhes
+            });
+
+            // Prevenir o redirecionamento ao clicar nos ícones
+            courseCard.querySelector('.save-icon').addEventListener('click', (event) => {
+                event.stopPropagation(); // Evita redirecionamento
+
+                // Toggle entre salvar e não salvo
+                course.isSaved = !course.isSaved;
+                event.target.textContent = course.isSaved ? 'bookmark' : 'bookmark_border'; // Muda o ícone visualmente
+
+                // Aqui você pode adicionar uma lógica para atualizar o JSON ou localStorage, se necessário
+            });
+
+            courseCard.querySelector('.favorite-icon').addEventListener('click', (event) => {
+                event.stopPropagation(); // Evita redirecionamento
+
+                // Toggle entre favoritar e não favoritado
+                course.isFavorite = !course.isFavorite;
+                event.target.textContent = course.isFavorite ? 'favorite' : 'favorite_border'; // Muda o ícone visualmente
+
+                // Aqui você pode adicionar uma lógica para atualizar o JSON ou localStorage, se necessário
             });
 
             // Adicionar o card ao contêiner

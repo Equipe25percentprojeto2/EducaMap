@@ -11,11 +11,9 @@ function loadCourseDetails() {
                     // Preencher os detalhes do curso na página
                     document.getElementById('course-image').src = course.image;
                     document.getElementById('course-title').textContent = course.title;
-                    document.getElementById('course-description').textContent = course.descricao;
                     document.getElementById('course-date').textContent = course.date;
                     document.getElementById('course-time').textContent = course.time;
                     document.getElementById('course-location').textContent = course.location;
-                    document.getElementById('course-institution').textContent = course.instituicao;
                 } else {
                     console.error('Curso não encontrado no arquivo JSON.');
                 }

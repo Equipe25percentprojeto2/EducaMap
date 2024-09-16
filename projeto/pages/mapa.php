@@ -55,12 +55,24 @@
     </nav>
 
     <div class="sidebar">
-        <h1 class="sidebar-title">Localizar</h1>
-        <h3 class="sidebar-subtitle">Encontre cursos e eventos próximos da sua região</h3>
+        <div class="sidebar-info">
+            <img src="http://localhost/projeto/Images/vectors/v1.png" alt="Imagem Localizar" class="sidebar-img">
+            <h1 class="sidebar-title">Localizar</h1>
+            <h3 class="sidebar-subtitle">Encontre cursos e eventos próximos da sua região</h3>
+        </div>
         
-        <input type="text" class="sidebar-input" placeholder="Digite sua localização" />
-        
-        <button class="sidebar-btn">Sair</button>
+        <label for="nome">Localização</label>        
+        <div class="input-container">
+            <span class="material-icons input-icon">share_location</span>
+            <input type="text" class="sidebar-input" placeholder="Digite sua localização" />
+        </div>
+
+        <a href="http://localhost/projeto/pages/home.php" class="btn-link">
+            <button class="sidebar-btn">
+                <span class="material-icons">arrow_circle_left</span>
+                Voltar
+            </button>
+        </a>
     </div>
 
     <div class="map-section">

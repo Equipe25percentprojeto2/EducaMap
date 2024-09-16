@@ -55,16 +55,43 @@
         <div class="main-content">
             <!-- Seção de informações gerais -->
             <div class="info-section">
-                <div class="course-details">
+                <div class="course-details" style="border: 1px solid red;">
+                    <!-- Imagem do curso -->
                     <img id="course-image" src="" alt="Imagem do Curso">
-                    <h1 id="course-title"></h1>
-                    <p id="course-description"></p>
-                    <p><strong>Data:</strong> <span id="course-date"></span></p>
-                    <p><strong>Hora:</strong> <span id="course-time"></span></p>
-                    <p><strong>Local:</strong> <span id="course-location"></span></p>
-                    <p><strong>Instituição:</strong> <span id="course-institution"></span></p>
+
+                    <div class="infos-cont">
+                        <div class="cont-one">
+                            <!-- Título e descrição do curso -->
+                            <h1 id="course-title"></h1>
+                            <p id="course-description"></p>
+
+                            <!-- Container para data e hora -->
+                            <div class="time-container">
+                                <span class="material-icons">schedule</span>
+                                <span id="course-date"></span> - 
+                                <span id="course-time"></span>
+                            </div>
+
+                            <!-- Container para localização -->
+                            <div class="location-container">
+                                <span class="material-icons">share_location</span>
+                                <span id="course-location"></span>
+                            </div>
+                        </div>
+
+                        <div class="cont-two">
+                            <div class="button-container">
+                                <button class="action-button" id="enroll-button">Inscrever</button>
+                                <button class="action-button" id="interest-button">Tenho Interesse</button>
+                                <button class="action-button" id="favorite-button">Adicionar aos Favoritos</button>
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
+
             </div>
+            
 
             <!-- Seção de instituição com espaço reservado -->
             <div class="institution-section">

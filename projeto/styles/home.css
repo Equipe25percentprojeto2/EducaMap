@@ -494,3 +494,27 @@ h3 {
     flex-shrink: 0; /* Garante que o título não encolha */
 }
 
+
+button.org-button {
+    background: transparent;
+    border: 2px solid #CC415E;
+    color: #CC415E;
+    padding: 8px;
+    border-radius: 100px;
+}
+
+button.org-button:hover {
+    background-color: #f3f3f3;
+}
+
+button.account-button {
+    background-color: #2E41DD;
+    border: none;
+    color: white;
+    padding: 10px;
+    border-radius: 100px;
+}
+
+button.account-button:hover {
+    background-color: #1e2a9c;
+}

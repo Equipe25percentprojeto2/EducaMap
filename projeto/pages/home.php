@@ -26,7 +26,7 @@
     
   <nav class="navbar">
     <div class="logo">
-      <img src="../Images/logos/Logo.png" alt="Logo">
+      <img src="http://localhost/projeto/Images/logos/Logo.png" alt="Logo">
     </div>
 
     <div class="search-bar">
@@ -34,7 +34,19 @@
       <input type="text" placeholder="Busque eventos e cursos">
     </div>
 
-    <div class="user-menu">
+    <div class="log-menu">
+      <div class="nav-buttons">
+        <a href="http://localhost/projeto/pages/empresas/login-emp.php">
+          <button class="org-button">Sou uma Organização</button>
+        </a>
+
+        <a href="http://localhost/projeto/pages/login.php">
+          <button class="account-button">Acessar Conta</button>
+        </a>
+      </div>
+    </div>
+
+    <!--<div class="user-menu">
 
         <img src="../Images/profiles/avatar.png" alt="Foto de Perfil" class="profile-pic">
         <span class="username">Rosália de Castro</span>
@@ -44,12 +56,12 @@
         </button>
 
         <ul class="dropdown-menu">
-            <li><span class="material-symbols-rounded" style="color: #2E41DD;">school</span><a href="http://localhost/projeto/pages/areadoaluno/cursos_salvos.html">Área do Aluno</a></li>
+            <li><span class="material-symbols-rounded" style="color: #2E41DD;">school</span><a href="http://localhost/projeto/pages/areadoaluno/cursos_salvos.php">Área do Aluno</a></li>
             <li><span class="material-symbols-rounded" style="color: #2E41DD;">map</span><a href="http://localhost/projeto/pages/mapa.php">Localizar Cursos e Eventos</a></li>
             <li><span class="material-symbols-rounded" style="color: #2E41DD;">forward</span><a href="#">Sair</a></li>
         </ul>
 
-    </div>
+    </div>-->
   </nav>
 
   <div class="banner-placeholder"></div>
@@ -83,7 +95,6 @@
                 <a href="#">Hoje</a>
                 <a href="#">Esta Semana</a>
                 <a href="#">Este Mês</a>
-                <a href="#">Em 6 Meses</a>
               </div>
             </div>
 
@@ -106,6 +117,7 @@
               <div class="dropdown-content">
                 <a href="#">Presencial</a>
                 <a href="#">Online</a>
+                <a href="#">Híbrido</a>
               </div>
             </div>
 

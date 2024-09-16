@@ -43,6 +43,16 @@ a{
 
 .form_title{
   text-align: center;   
+  margin-right: 10px;
+  align-items: center;
+}
+
+.form_title img{
+  width: 100%;
+}
+
+.emp-header{
+  margin-bottom: 35px;
 }
 
 .register-section,
@@ -193,8 +203,7 @@ button:hover {
 }
 
 .btn-prev:hover{
-  background-color: #2E41DD;
-  color: white;
+  background-color: #e3e3e3;
 }
 
 .main-p {

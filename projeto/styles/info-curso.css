@@ -13,107 +13,65 @@ body {
     line-height: 1.6;
 }
 
-/* Container principal da página de detalhes */
-.course-details-container {
-    max-width: 1200px;
-    margin: 50px auto;
-    padding: 20px;
-    background-color: #fff;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
-}
-
-/* Estilo da seção de detalhes do curso */
+/* Estilo para o container da imagem e detalhes do curso */
 .course-details {
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 10px; /* Espaço entre os elementos, ajuste conforme necessário */
 }
 
-/* Estilo do cabeçalho do curso (imagem e informações) */
-.course-header {
+/* Estilo para a imagem do curso */
+#course-image {
+    max-width: 1000px; /* Ajusta a imagem para não exceder a largura do container */
+    width: 130%;
+    height: auto; /* Mantém a proporção da imagem */
+    border-radius: 10px; /* Adiciona bordas arredondadas */
+}
+
+/* Estilo para a container de data e hora */
+.time-container {
     display: flex;
     align-items: center;
-    gap: 20px;
+    gap: 10px; /* Espaço entre o ícone e o texto */
+    font-size: 1rem; /* Ajusta o tamanho da fonte conforme necessário */
 }
 
-/* Estilo da imagem do curso */
-.course-image {
-    width: 300px;
-    height: auto;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-/* Estilo das informações do curso (título e descrição) */
-.course-info {
-    flex: 1;
-}
-
-.course-info h1 {
-    font-size: 2rem;
-    margin-bottom: 10px;
-    color: #2E41DD;
-}
-
-.course-info p {
-    font-size: 1.1rem;
-    color: #666;
-}
-
-/* Meta informações do curso (data, hora, local) */
-.course-meta {
+/* Estilo para a container de localização */
+.location-container {
     display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
+    align-items: center;
+    gap: 10px; /* Espaço entre o ícone e o texto */
+    font-size: 1rem; /* Ajusta o tamanho da fonte conforme necessário */
 }
 
-.course-meta p {
-    font-size: 1rem;
-    color: #444;
+.material-icons {
+    font-size: 1.2rem; /* Ajusta o tamanho do ícone conforme necessário */
+    color: #2E41DD; /* Cor dos ícones, ajuste conforme necessário */
 }
 
-.course-meta p strong {
-    color: #2E41DD;
-}
-
-/* Estilo dos botões de ação */
-.course-actions {
-    margin-top: 30px;
+/* Estilo para o container dos botões */
+.button-container {
     display: flex;
-    gap: 15px;
+    flex-direction: column; /* Empilha os botões verticalmente */
+    gap: 10px; /* Espaço entre os botões */
 }
 
-.action-button {
-    padding: 10px 20px;
-    font-size: 1rem;
-    font-weight: 500;
-    color: #fff;
-    background-color: #2E41DD;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-}
-
-/* Estilo para a seção de informações gerais */
-.info-section {
-    padding: 20px;
-    margin-bottom: 20px;
-}
-
-/* Estilo para a seção de instituição */
-.institution-section {
+.infos-cont {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-between; /* Alinha os itens principais ao longo do eixo principal (horizontal) */
+    gap: 20px; /* Espaço entre os itens */
 }
 
-.institution-details {
-    flex: 1;
-    padding: 20px;
+/* Container para título e descrição do curso */
+.cont-one {
+    flex: 1; /* Faz com que o container ocupe o espaço disponível restante */
 }
 
-.institution-placeholder {
-    width: 300px; /* Ajuste o tamanho conforme necessário */
-    background-color: #e0e0e0; /* Cor cinza para o espaço reservado */
-    height: 100%; /* Ajuste a altura conforme necessário */
+/* Container para os botões de ação */
+.cont-two {
+    /* Adiciona um alinhamento específico à direita do container principal */
+    display: flex;
+    flex-direction: column;
+    gap: 10px; /* Espaço entre os botões */
+    align-items: flex-end; /* Alinha os itens ao final do eixo transversal (direita) */
 }
