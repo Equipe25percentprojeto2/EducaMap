@@ -11,7 +11,7 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
     <link rel="stylesheet" href="http://localhost/projeto/styles/info-curso.css"> <!-- Estilos da página de detalhes -->
-    <link rel="stylesheet" href="http://localhost/projeto/styles/home.css">
+    <!--<link rel="stylesheet" href="http://localhost/projeto/styles/home.css">-->
 
     <title>Detalhes do Curso</title>
 
@@ -23,7 +23,7 @@
 
 <body>
 
-    <nav class="navbar">
+    <!--<nav class="navbar">
         <div class="logo">
             <img src="../Images/logos/Logo.png" alt="Logo">
         </div>
@@ -49,13 +49,14 @@
             </ul>
 
         </div>
-    </nav>
+    </nav>-->
 
     <div class="page-container">
         <div class="main-content">
+            
             <!-- Seção de informações gerais -->
             <div class="info-section">
-                <div class="course-details" style="border: 1px solid red;">
+                <div class="course-details">
                     <!-- Imagem do curso -->
                     <img id="course-image" src="" alt="Imagem do Curso">
 
@@ -81,7 +82,7 @@
 
                         <div class="cont-two">
                             <div class="button-container">
-                                <button class="action-button" id="enroll-button">Inscrever</button>
+                                <button class="action-button" id="enroll-button">Quero me inscrever!</button>
                                 <button class="action-button" id="interest-button">Tenho Interesse</button>
                                 <button class="action-button" id="favorite-button">Adicionar aos Favoritos</button>
                             </div>
@@ -92,17 +93,45 @@
 
             </div>
             
-
             <!-- Seção de instituição com espaço reservado -->
             <div class="institution-section">
                 <div class="institution-details">
-                    <!-- Informações sobre a instituição (se houver) -->
+                    <img id="company-logo" alt="Logo da Empresa">
+                    <h2 id="company-name"></h2>
+                    <button class="action-button" id="follow-button">Seguir Perfil</button>
                 </div>
+
                 <div class="institution-placeholder">
-                    <!-- Espaço reservado com retângulo cinza -->
+                    <h3 class="info-title">Informações</h3>
+                    <p>Carga Horária: </p>
+                    <span id="course-hours"></span>
+                    <p>Valor: </p>
+                    <span id="course-value"></span>
+                    <p>Modalidade: </p>
+                    <span id="course-mode"></span>
+                    <div id="course-tags" class="tags-container"></div>
                 </div>
             </div>
+
         </div>
+
+        <div class="second-content">
+            <!-- Seção de textos descritivos --> 
+            <div class="descritive-texts">
+                <h3 class="descritive-title">Sobre</h3>
+                <p id="course-description-text"></p>
+                
+                <h3 class="descritive-title">Requisitos</h3>
+                <p id="course-additional-info"></p>
+            </div>
+
+            <!-- Seção de professores -->
+            <div class="teachers-card">
+                <h3>Professores</h3>
+                <div id="professores-container"></div> <!-- Container onde os professores serão inseridos -->
+            </div>
+        </div>
+
     </div>
 
     <!-- Script JS para carregar os detalhes -->

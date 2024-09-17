@@ -1,0 +1,9 @@
+{
+    "empresas": [
+      {
+        "logoempresa": "http://localhost/projeto/Images/logos/empresas/ufc.png",
+        "nomeEmpresa": "Universidade Federal do Ceará",
+        "cnpj": "07272636000131"
+      }
+    ]
+}

@@ -13,7 +13,12 @@
       "latitude": "-3.7487958",
       "longitude": "-38.579296",
       "isSaved": false,
-      "isFavorite": false
+      "isFavorite": false,
+      "logoempresa": "http://localhost/projeto/Images/logos/empresas/ufc.png",
+      "nomeempresa": "Universidade Federal do Ceará",
+      "cargahoraria": "36h",
+      "valor": "gratuito",
+      "modalidade": "online"
     },
     {
       "id": "0002",
@@ -28,7 +33,12 @@
       "latitude": "-3.7487958",
       "longitude": "-38.579296",
       "isSaved": false,
-      "isFavorite": false
+      "isFavorite": false,
+      "logoempresa": "http://localhost/projeto/Images/ufc.png",
+      "nomeempresa": "Universidade Federal do Ceará",
+      "cargahoraria": "36h",
+      "valor": "gratuito",
+      "modalidade": "online"
     },
     {
       "id": "0003",
@@ -41,7 +51,12 @@
       "instituicao": "Universidade Federal do Ceará",
       "descricao": "Entenda as principais estratégias de marketing digital, incluindo SEO, SEM e marketing de conteúdo. Ideal para quem quer expandir suas habilidades de marketing online.",
       "isSaved": false,
-      "isFavorite": false
+      "isFavorite": false,
+      "logoempresa": "http://localhost/projeto/Images/ufc.png",
+      "nomeempresa": "Universidade Federal do Ceará",
+      "cargahoraria": "36h",
+      "valor": "gratuito",
+      "modalidade": "online"
     },
     {
       "id": "0004",
@@ -56,7 +71,32 @@
       "latitude": "-3.7002218",
       "longitude": "-38.5874173",
       "isSaved": false,
-      "isFavorite": false
+      "isFavorite": false,
+      "logoempresa": "http://localhost/projeto/Images/logos/empresas/juventude-digital-fortaleza.png",
+      "nomeempresa": "Juventude Digital",
+      "cargahoraria": "36h",
+      "valor": "gratuito",
+      "modalidade": "online",
+
+      "requisitos": [
+        "Conhecimento básico em informática e uso de softwares de design (como Photoshop ou Illustrator)",
+        "Interesse em design gráfico e criatividade para resolver problemas visuais",
+        "Familiaridade com conceitos básicos de arte e estética visual."
+      ],
+
+      "fotoprofessores": [
+        "http://localhost/projeto/Images/profiles/professores/prof1.png",
+        "http://localhost/projeto/Images/profiles/professores/prof2.jpg",
+        "http://localhost/projeto/Images/profiles/professores/prof3.png",
+        "http://localhost/projeto/Images/profiles/professores/prof4.jfif"
+      ],
+
+      "nomesprofessores": [
+        "Rafael Souza",
+        "Lucas Almeida",
+        "Júlia Fernandes",
+        "Amanda Rodrigues"
+      ]
     },
     {
       "id": "0005",
@@ -71,7 +111,12 @@
       "latitude": "-3.7530891",
       "longitude": "-38.5822532",
       "isSaved": false,
-      "isFavorite": false
+      "isFavorite": false,
+      "logoempresa": "http://localhost/projeto/Images/ufc.png",
+      "nomeempresa": "Juventude Digital",
+      "cargahoraria": "36h",
+      "valor": "gratuito",
+      "modalidade": "online"
     },
     {
       "id": "0006",
@@ -84,7 +129,12 @@
       "instituicao": "EBAC",
       "descricao": "Descubra as principais técnicas e ferramentas para a segurança dos dados. Este curso é ideal para quem está começando a explorar o mundo dos testes de segurança.",
       "isSaved": false,
-      "isFavorite": false
+      "isFavorite": false,
+      "logoempresa": "http://localhost/projeto/Images/ufc.png",
+      "nomeempresa": "EBAC",
+      "cargahoraria": "36h",
+      "valor": "gratuito",
+      "modalidade": "online"
     }
   ]
 }
