@@ -1,10 +1,22 @@
 fetch('http://localhost/projeto/cursos.json')
-  .then(response => response.json())
+  .then(response => {
+    if (!response.ok) {
+      throw new Error('Erro ao carregar o arquivo JSON');
+    }
+    return response.json();
+  })
   .then(data => {
     console.log(data); // Verifica se os dados estão corretos
 
     if (data.courses && Array.isArray(data.courses) && data.courses.length > 0) {
       const primeiroCurso = data.courses[0]; 
+      
+      // Verificação adicional para latitude e longitude
+      if (!primeiroCurso.latitude || !primeiroCurso.longitude) {
+        console.error('Coordenadas inválidas para o primeiro curso.');
+        return;
+      }
+
       var map = L.map('map').setView([primeiroCurso.latitude, primeiroCurso.longitude], 13);
 
       L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {

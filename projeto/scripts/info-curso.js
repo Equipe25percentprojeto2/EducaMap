@@ -65,3 +65,50 @@ function loadCourseDetails() {
 
 // Chamar a função para carregar os detalhes do curso
 document.addEventListener('DOMContentLoaded', loadCourseDetails);
+
+function loadThirdContent() {
+    const courseId = localStorage.getItem('selectedCourseId');
+
+    if (courseId) {
+        fetch('http://localhost/projeto/cursos.json')
+            .then(response => response.json())
+            .then(data => {
+                const course = data.courses.find(c => c.id === courseId);
+                if (course) {
+                    // Preencher detalhes de contato
+                    document.getElementById('course-address').textContent = course.endereco;
+                    document.getElementById('course-phone').textContent = course.telefone;
+                    document.getElementById('course-hours-operation').textContent = course.horafuncionamento;
+
+                    // Inicializar mapa Leaflet
+                    const map = L.map('map').setView([course.latitude, course.longitude], 13);
+
+                    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                        attribution: '&copy; OpenStreetMap contributors'
+                    }).addTo(map);
+
+                    // Adicionar marker com as informações
+                    const marker = L.marker([course.latitude, course.longitude]).addTo(map);
+                    marker.bindPopup(`
+                        <div style="text-align: center; font-size: 12px; line-height: 1.2; max-width: 500px">
+                            <img src="${course.image}" alt="${course.title}" style="width: 250px; height: auto; margin-bottom: 5px; border-radius: 5px;">
+                            <h3 style="font-size: 15px; margin: 5px 0;">${course.title}</h3>
+                            <div class="infos-container" style="align-items: left;">
+                                <div class="card-info">
+                                    <span class="material-icons">schedule</span>
+                                    <p>${course.date} - ${course.time}</p>
+                                </div>
+                                <div class="card-info" style="text-align: left;">
+                                    <span class="material-icons">share_location</span>
+                                    <p>${course.location}</p>
+                                </div>
+                            </div>
+                        </div>
+                    `).openPopup();
+                }
+            })
+        .catch(error => console.error('Erro ao carregar o conteúdo:', error));
+    }
+}
+
+document.addEventListener('DOMContentLoaded', loadThirdContent);

@@ -77,6 +77,9 @@
       "cargahoraria": "36h",
       "valor": "gratuito",
       "modalidade": "online",
+      "telefone": 85976764545,
+      "horafuncionamento": "das 08:00 às 20:00",
+      "endereco": "rua ricardo joarez, 445",
 
       "requisitos": [
         "Conhecimento básico em informática e uso de softwares de design (como Photoshop ou Illustrator)",

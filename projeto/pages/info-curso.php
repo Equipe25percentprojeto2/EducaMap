@@ -9,8 +9,11 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />    
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
 
     <link rel="stylesheet" href="http://localhost/projeto/styles/info-curso.css"> <!-- Estilos da página de detalhes -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css" />
+
     <!--<link rel="stylesheet" href="http://localhost/projeto/styles/home.css">-->
 
     <title>Detalhes do Curso</title>
@@ -132,10 +135,26 @@
             </div>
         </div>
 
+        <div class="third-content">
+            <div class="contact-details">
+                <h3>Endereço</h3>
+                <p id="course-address"></p>
+                <h3>Telefone</h3>
+                <p id="course-phone"></p>
+                <h3>Horário de Funcionamento</h3>
+                <p id="course-hours-operation"></p>
+            </div>
+
+            <div id="map-container">
+                <div id="map"  style="height: 400px; width: 100%;"></div>
+            </div>
+        </div>
+
     </div>
 
     <!-- Script JS para carregar os detalhes -->
     <script src="http://localhost/projeto/scripts/info-curso.js"></script>
+    <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"></script>
 
 </body>
 </html>
