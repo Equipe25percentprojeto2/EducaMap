@@ -18,7 +18,30 @@
       "nomeempresa": "Universidade Federal do Ceará",
       "cargahoraria": "36h",
       "valor": "gratuito",
-      "modalidade": "online"
+      "modalidade": "online",
+      "telefone": 85976431212,
+      "horafuncionamento": "das 07:30 às 18:00",
+      "endereco": "Rua Pernambuco, 56",
+
+      "requisitos": [
+        "Familiaridade com navegação na internet, uso de editores de texto simples (como Notepad ou VS Code) e manuseio de arquivos no computador",
+        "É necessário ter um computador com acesso à internet para praticar e testar o código, além de instalar um editor de texto para escrever o código HTML e CSS.",
+        "O curso é voltado para iniciantes, então não é necessário conhecimento prévio em programação ou desenvolvimento web."
+      ],
+
+      "fotoprofessores": [
+        "http://localhost/projeto/Images/profiles/professores/prof1.png",
+        "http://localhost/projeto/Images/profiles/professores/prof2.jpg",
+        "http://localhost/projeto/Images/profiles/professores/prof3.png",
+        "http://localhost/projeto/Images/profiles/professores/prof4.jfif"
+      ],
+
+      "nomesprofessores": [
+        "Rafael Souza",
+        "Lucas Almeida",
+        "Júlia Fernandes",
+        "Amanda Rodrigues"
+      ]
     },
     {
       "id": "0002",
@@ -38,7 +61,29 @@
       "nomeempresa": "Universidade Federal do Ceará",
       "cargahoraria": "36h",
       "valor": "gratuito",
-      "modalidade": "online"
+      "modalidade": "online",
+      "telefone": 85976431212,
+      "horafuncionamento": "das 07:30 às 18:00",
+      "endereco": "Rua Pernambuco, 56",
+
+      "requisitos": [
+        "O participante deve ter curiosidade e interesse em aprender sobre como melhorar a experiência do usuário através de pesquisas e estudos de comportamento",
+        "É recomendável ter noções básicas sobre princípios de usabilidade ou ter algum contato prévio com design de interfaces, mas não é necessário ter experiência avançada na área."
+      ],
+
+      "fotoprofessores": [
+        "http://localhost/projeto/Images/profiles/professores/prof1.png",
+        "http://localhost/projeto/Images/profiles/professores/prof2.jpg",
+        "http://localhost/projeto/Images/profiles/professores/prof3.png",
+        "http://localhost/projeto/Images/profiles/professores/prof4.jfif"
+      ],
+
+      "nomesprofessores": [
+        "Rafael Souza",
+        "Lucas Almeida",
+        "Júlia Fernandes",
+        "Amanda Rodrigues"
+      ]
     },
     {
       "id": "0003",
@@ -56,7 +101,29 @@
       "nomeempresa": "Universidade Federal do Ceará",
       "cargahoraria": "36h",
       "valor": "gratuito",
-      "modalidade": "online"
+      "modalidade": "online",
+      "telefone": 85976431212,
+      "horafuncionamento": "das 07:30 às 18:00",
+      "endereco": "Rua Pernambuco, 56",
+
+      "requisitos": [
+        "O participante deve ter curiosidade e interesse em aprender sobre como melhorar a experiência do usuário através de pesquisas e estudos de comportamento",
+        "É recomendável ter noções básicas sobre princípios de usabilidade ou ter algum contato prévio com design de interfaces, mas não é necessário ter experiência avançada na área."
+      ],
+
+      "fotoprofessores": [
+        "http://localhost/projeto/Images/profiles/professores/prof1.png",
+        "http://localhost/projeto/Images/profiles/professores/prof2.jpg",
+        "http://localhost/projeto/Images/profiles/professores/prof3.png",
+        "http://localhost/projeto/Images/profiles/professores/prof4.jfif"
+      ],
+
+      "nomesprofessores": [
+        "Rafael Souza",
+        "Lucas Almeida",
+        "Júlia Fernandes",
+        "Amanda Rodrigues"
+      ]
     },
     {
       "id": "0004",
@@ -82,9 +149,7 @@
       "endereco": "rua ricardo joarez, 445",
 
       "requisitos": [
-        "Conhecimento básico em informática e uso de softwares de design (como Photoshop ou Illustrator)",
-        "Interesse em design gráfico e criatividade para resolver problemas visuais",
-        "Familiaridade com conceitos básicos de arte e estética visual."
+        "Interesse básico em criação visual e esteja familiarizado com conceitos de comunicação visual, como cores, tipografia e layout. Não é necessário ter experiência prévia com softwares de design, porém, é recomendável que o participante tenha disposição para aprender a utilizar ferramentas digitais como Adobe Photoshop, Illustrator ou outros programas semelhantes, que serão introduzidos durante o curso."
       ],
 
       "fotoprofessores": [
@@ -119,7 +184,28 @@
       "nomeempresa": "Juventude Digital",
       "cargahoraria": "36h",
       "valor": "gratuito",
-      "modalidade": "online"
+      "modalidade": "online",
+      "telefone": 85976764545,
+      "horafuncionamento": "das 08:00 às 20:00",
+      "endereco": "rua ricardo joarez, 445",
+
+      "requisitos": [
+        "interesse em trabalhar com dados e noções básicas de matemática, especialmente em áreas como estatística e probabilidade. Não é necessário conhecimento prévio em ferramentas de análise, mas é recomendável que o participante tenha disposição para aprender o uso de softwares como Excel, Google Sheets ou linguagens de programação simples, como Python, que serão abordados ao longo do curso."
+      ],
+
+      "fotoprofessores": [
+        "http://localhost/projeto/Images/profiles/professores/prof1.png",
+        "http://localhost/projeto/Images/profiles/professores/prof2.jpg",
+        "http://localhost/projeto/Images/profiles/professores/prof3.png",
+        "http://localhost/projeto/Images/profiles/professores/prof4.jfif"
+      ],
+
+      "nomesprofessores": [
+        "Rafael Souza",
+        "Lucas Almeida",
+        "Júlia Fernandes",
+        "Amanda Rodrigues"
+      ]
     },
     {
       "id": "0006",
@@ -137,7 +223,28 @@
       "nomeempresa": "EBAC",
       "cargahoraria": "36h",
       "valor": "gratuito",
-      "modalidade": "online"
+      "modalidade": "online",
+      "telefone": 85976764545,
+      "horafuncionamento": "das 08:00 às 20:00",
+      "endereco": "rua ricardo joarez, 445",
+
+      "requisitos": [
+        "Para participar do curso de Fundamentos da Segurança da Informação e Cyber Security, é importante que o aluno tenha conhecimentos básicos de informática e um interesse em entender os conceitos fundamentais da segurança digital. Também é desejável que o participante tenha familiaridade com redes de computadores e noções de como elas funcionam, já que o curso abordará aspectos como proteção de redes, criptografia, e prevenção de ataques cibernéticos. Além disso, o aluno deve estar disposto a acompanhar as atualizações constantes na área de cibersegurança."
+      ],
+
+      "fotoprofessores": [
+        "http://localhost/projeto/Images/profiles/professores/prof1.png",
+        "http://localhost/projeto/Images/profiles/professores/prof2.jpg",
+        "http://localhost/projeto/Images/profiles/professores/prof3.png",
+        "http://localhost/projeto/Images/profiles/professores/prof4.jfif"
+      ],
+
+      "nomesprofessores": [
+        "Rafael Souza",
+        "Lucas Almeida",
+        "Júlia Fernandes",
+        "Amanda Rodrigues"
+      ]
     }
   ]
 }
