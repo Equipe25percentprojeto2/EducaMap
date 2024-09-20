@@ -140,7 +140,7 @@ body {
 /* Estilo base para os botões */
 .action-button {
     border: none;
-    border-radius: 15px;
+    border-radius: 12px;
     padding: 10px 20px;
     font-size: 1rem;
     cursor: pointer;
@@ -152,51 +152,42 @@ body {
     margin-bottom: 10px;
 }
 
+.icons-info-actions{
+    display: flex;
+    gap: 10px;
+}
 
-/* Botão "Quero me inscrever!" com fundo azul */
 #enroll-button {
     background-color: #2E41DD;
     color: white;
 }
 
 #enroll-button:hover {
-    background-color: #1f2eb3; /* Azul mais escuro no hover */
+    background-color: #1f2eb3; 
 }
 
-/* Botão "Tenho Interesse" vazado com borda e texto na cor CC415E */
-#interest-button {
-    background-color: transparent;
+/*
+.action-button .material-icons {
+    font-size: 20px;
+}
+
+.favorite {
     color: #CC415E;
-    border: 2px solid #CC415E;
 }
 
-#interest-button:hover {
-    background-color: #d3d3d3;
+.action-button.clicked .material-icons {
+    transition: color 0.3s ease;
 }
 
-/* Botão "Adicionar aos Favoritos" com texto sublinhado e ícone */
-#favorite-button {
-    background-color: transparent;
-    color: #2E41DD;
-    text-decoration: none;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px; /* Espaço entre o texto e o ícone */
+#save-button.clicked .material-icons {
+    content: "bookmark";
 }
 
-#favorite-button:hover {
-    text-decoration: none;
-    color: #1f2eb3; /* Azul mais escuro no hover */
-}
-
-/* Ícone de favorito */
-#favorite-button::before {
+#favorite-button.clicked .material-icons {
     content: "favorite";
-    font-family: 'Material Icons';
-    color: #CC415E;
-    font-size: 1.2rem; /* Tamanho do ícone */
 }
+
+*/
 
 .institution-details {
     display: flex;
@@ -220,7 +211,7 @@ body {
     color: #fff;
     border: none;
     padding: 10px 20px;
-    border-radius: 15px;
+    border-radius: 12px;
     cursor: pointer;
     font-size: 16px;
     transition: background-color 0.3s ease;
@@ -337,7 +328,7 @@ body {
     display: grid;
     grid-template-columns: 25% 75%;
     gap: 20px;
-    margin-top: 30px;
+    margin: 20px; /* Adiciona margens ao redor das seções para afastá-las das bordas da página */
 }
 
 .contact-details {
@@ -347,15 +338,16 @@ body {
 }
 
 #map-container {
+    width: 100%;
     height: 100%;
     position: relative;
     background-color: #f0f0f0;
+    border-right: 20px;
 }
 
 #map {
-    width: 100%;
-    height: 400px; /* Certifique-se de definir a altura */
     border-radius: 8px;
+    margin-bottom: 20px;
 }
 
 .map-card {
@@ -367,3 +359,34 @@ body {
     font-size: 1.2rem;
 }
 
+.infos-container {
+    display: flex;
+    flex-direction: column;
+    gap: -100px; /* Reduz o espaçamento entre as linhas de informações */
+}
+
+.card-info {
+    display: flex;
+    align-items: center;
+}
+
+.card-info span.material-icons {
+    font-size: 20px;
+    margin-right: 8px; /* Mantém o espaçamento entre o ícone e o texto */
+}
+
+.card-info p {
+    margin: 0;
+    font-size: 14px;
+}
+
+.card-container {
+    display: none; /* Inicialmente, o card não será exibido */
+    opacity: 0;
+    transition: opacity 0.3s ease; /* Transição suave para aparecer */
+}
+
+.card-container.active {
+    display: block; /* Exibe o card quando a classe "active" for adicionada */
+    opacity: 1;
+}

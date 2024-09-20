@@ -3,20 +3,44 @@ const dropdownBtn = document.querySelector('.dropdown-btn');
 const dropdownMenu = document.querySelector('.dropdown-menu');
 const dropdownIcon = document.querySelector('.dropdown-icon');
 
-// Adiciona o evento de clique
-dropdownBtn.addEventListener('click', function() {
-    // Alterna a classe 'show' para mostrar ou esconder o menu
-    dropdownMenu.classList.toggle('show');
-    // Alterna a classe 'rotate' no ícone do chevron
-    dropdownIcon.classList.toggle('rotate');
+
+// Adiciona evento de clique a cada botão
+dropdownButtons.forEach((dropdownBtn, index) => {
+    const dropdownMenu = dropdownBtn.nextElementSibling;
+    const dropdownIcon = dropdownIcons[index];
+
+    dropdownBtn.addEventListener('click', function(e) {
+        // Impedir que o clique no botão feche imediatamente após abrir
+        e.stopPropagation();
+
+        // Alterna a exibição do menu dropdown
+        dropdownMenu.classList.toggle('show');
+        dropdownIcon.classList.toggle('rotate');
+    });
 });
 
 // Fechar o dropdown ao clicar fora dele
-window.addEventListener('click', function(event) {
-    if (!dropdownBtn.contains(event.target)) {
+window.addEventListener('click', function() {
+    dropdownButtons.forEach((dropdownBtn, index) => {
+        const dropdownMenu = dropdownBtn.nextElementSibling;
+        const dropdownIcon = dropdownIcons[index];
+
         dropdownMenu.classList.remove('show');
         dropdownIcon.classList.remove('rotate');
-    }
+    });
+});
+
+// Fechar o dropdown ao clicar fora, exceto se for no botão
+window.addEventListener('click', function(event) {
+    dropdownButtons.forEach((dropdownBtn, index) => {
+        const dropdownMenu = dropdownBtn.nextElementSibling;
+        const dropdownIcon = dropdownIcons[index];
+
+        if (!dropdownBtn.contains(event.target)) {
+            dropdownMenu.classList.remove('show');
+            dropdownIcon.classList.remove('rotate');
+        }
+    });
 });
 
 // Selecionar todos os dropdowns
@@ -35,13 +59,6 @@ document.querySelectorAll('.filter-button').forEach(button => {
 
         // Impedir que o clique feche imediatamente após abrir
         e.stopPropagation();
-    });
-});
-
-// Fechar o dropdown ao clicar fora dele
-window.addEventListener('click', function() {
-    document.querySelectorAll('.dropdown-content').forEach(content => {
-        content.classList.remove('show');
     });
 });
 

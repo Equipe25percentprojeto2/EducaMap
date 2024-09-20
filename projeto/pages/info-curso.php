@@ -86,8 +86,20 @@
                         <div class="cont-two">
                             <div class="button-container">
                                 <button class="action-button" id="enroll-button">Quero me inscrever!</button>
-                                <button class="action-button" id="interest-button">Tenho Interesse</button>
-                                <button class="action-button" id="favorite-button">Adicionar aos Favoritos</button>
+
+                                <div class="icons-info-actions">
+                            
+                                    <!-- Botão Salvar -->
+                                    <!--<button class="action-button" id="save-button">
+                                        <span class="material-icons">bookmark_border</span>
+                                    </button>-->
+
+                                    <!-- Botão Favoritar -->
+                                    <!--<button class="action-button" id="favorite-button">
+                                        <span class="material-icons">favorite_border</span>
+                                    </button>-->
+                                </div>
+
                             </div>
                         </div>
                     </div>
@@ -146,7 +158,7 @@
             </div>
 
             <div id="map-container">
-                <div id="map"  style="height: 400px; width: 100%;"></div>
+                <div id="map"  style="height: 500px; width: 98%;"></div>
             </div>
         </div>
 

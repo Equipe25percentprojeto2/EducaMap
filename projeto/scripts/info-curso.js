@@ -80,15 +80,20 @@ function loadThirdContent() {
                     document.getElementById('course-phone').textContent = course.telefone;
                     document.getElementById('course-hours-operation').textContent = course.horafuncionamento;
 
-                    // Inicializar mapa Leaflet
-                    const map = L.map('map').setView([course.latitude, course.longitude], 13);
+                    // Inicializar o mapa Leaflet com a latitude e longitude do curso
+                    const map = L.map('map').setView([course.latitude, course.longitude], 16);
 
                     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
                         attribution: '&copy; OpenStreetMap contributors'
                     }).addTo(map);
 
-                    // Adicionar marker com as informações
+                    // Adicionar o marcador no mapa
                     const marker = L.marker([course.latitude, course.longitude]).addTo(map);
+
+                    // Centralizar o mapa no marcador
+                    map.setView([course.latitude, course.longitude]);
+
+                    // Adicionar o popup ao marcador (sem abrir automaticamente)
                     marker.bindPopup(`
                         <div style="text-align: center; font-size: 12px; line-height: 1.2; max-width: 500px">
                             <img src="${course.image}" alt="${course.title}" style="width: 250px; height: auto; margin-bottom: 5px; border-radius: 5px;">
@@ -104,7 +109,12 @@ function loadThirdContent() {
                                 </div>
                             </div>
                         </div>
-                    `).openPopup();
+                    `);
+
+                    // Forçar o redimensionamento do mapa após 200ms
+                    setTimeout(function() {
+                        map.invalidateSize();
+                    }, 200);
                 }
             })
         .catch(error => console.error('Erro ao carregar o conteúdo:', error));
