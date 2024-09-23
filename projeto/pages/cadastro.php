@@ -2,7 +2,7 @@
 <html>
 
 <head>
-  <title>Login</title>
+  <title>Cadastro</title>
   <link rel="stylesheet" href="../styles/login.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
 
@@ -21,7 +21,7 @@
                 <h2>Bem-vindo!</h2>
                 <h3>Já possui uma conta?</h3>
                 </div>
-                <button class="btn-second" onclick="window.location.href='http:/projeto/pages/login.php'">Entrar</button>
+                <button class="btn btn-success" onclick="window.location.href='http:/projeto/pages/login.html'">Entrar</button>
             </div>
         </div>
 
@@ -45,24 +45,18 @@
                     </div>
                 </div>
 
-                <form id="registrationForm">
+                <form id="registrationForm" method="post">
 
                     <!-- Seção 1 -->
                     <div class="form-section" id="section1">
                         <div class="form-group">
-                            <div class="label-forms">
-                                <label for="nome">Nome</label>
-                                <label class="label-required">(Campo obrigatório)
-                            </div>
+                            <label for="nome">Nome:</label>
                             <input type="text" id="nome" name="nome" required>
                         </div>
 
                         <div class="form-group">
-                            <div class="label-forms">
-                                <label for="nome">CPF</label>
-                                <label class="label-required">(Campo obrigatório)
-                            </div>
-                            <input type="text" id="cpf" name="cpf" required maxlength="14" oninput="formatCPF(this)" required>
+                            <label for="cpf">CPF:</label>
+                            <input type="text" id="cpf" name="cpf" required maxlength="14" oninput="formatCPF(this)">
                         </div>
 
                         <div class="form-grid">
@@ -100,111 +94,92 @@
                             </div>
                         </div>
 
-                        <button type="button" class="btn-next" onclick="nextSection(2)">Avançar</button>
+                        <button type="button" onclick="nextSection(2)">Avançar</button>
                     </div>
 
                     <!-- Seção 2 -->
                     <div class="form-section" id="section2" style="display: none;">
                         <div class="form-grid">
                             <div class="form-item">
-                                <label for="nome">Estado</label>
+                                <label for="estado">Estado:</label>
                                 <input type="text" id="estado" name="estado" required>
                             </div>
 
                             <div class="form-item">
-                                <label for="nome">Cidade</label>
+                                <label for="cidade">Cidade:</label>
                                 <input type="text" id="cidade" name="cidade" required>
                             </div>
                         </div>
 
                         <div class="form-group">
-                            <div class="label-forms">
-                                <label for="nome">Localização</label>
-                                <label class="label-required">(Campo obrigatório)
-                            </div>
+                            <label for="localizacao">Localização:</label>
                             <input type="text" id="localizacao" name="localizacao" required>
                         </div>
 
-                        <div class="button-container">
-                            <button type="button" class="btn-prev" onclick="previousSection(1)">Voltar</button>
-                            <button type="button" class="btn-next" onclick="nextSection(3)">Avançar</button>
-                        </div>
-
+                        <button type="button" onclick="previousSection(1)">Voltar</button>
+                        <button type="button" onclick="nextSection(3)">Avançar</button>
                     </div>
 
                     <!-- Seção 3 -->
                     <div class="form-section" id="section3" style="display: none;">
-                        <p class="main-p">Quais áreas você tem interesse em aprender mais?</p>
-                        <p class="sec-p">Selecione no mínimo 3 para começar</h6>
-
+                        <p>Selecione suas áreas de interesse:</p>
                         <div class="checkbox-group">
-                            <label class="custom-checkbox">Análise de Dados
-                                <input type="checkbox" name="interesse" value="analise-de-dados">
-                                <span class="checkmark"></span>
+                            <label>
+                                <input type="checkbox" name="interesse[]" value="analise-de-dados">
+                                Análise de Dados
                             </label>
 
-                            <label class="custom-checkbox">Design Digital
-                                <input type="checkbox" name="interesse" value="design-digital">
-                                <span class="checkmark"></span>
+                            <label>
+                                <input type="checkbox" name="interesse[]" value="design-digital">
+                                Design Digital
                             </label>
 
-                            <label class="custom-checkbox">Desenvolvimento de sistemas
-                                <input type="checkbox" name="interesse" value="desenvolvimento-de-sistemas">
-                                <span class="checkmark"></span>
+                            <label>
+                                <input type="checkbox" name="interesse[]" value="desenvolvimento-de-sistemas">
+                                Desenvolvimento de Sistemas
                             </label>
 
-                            <label class="custom-checkbox">Segurança da informação
-                                <input type="checkbox" name="interesse" value="seguranca-da-informacao">
-                                <span class="checkmark"></span>
+                            <label>
+                                <input type="checkbox" name="interesse[]" value="seguranca-da-informacao">
+                                Segurança da Informação
                             </label>
 
-                            <label class="custom-checkbox">Gestão de projetos
-                                <input type="checkbox" name="interesse" value="gestao-de-projetos">
-                                <span class="checkmark"></span>
+                            <label>
+                                <input type="checkbox" name="interesse[]" value="gestao-de-projetos-de-ti">
+                                Gestão de Projetos de TI
                             </label>
 
-                            <label class="custom-checkbox">Informática Básica
-                                <input type="checkbox" name="interesse" value="informatica-basica">
-                                <span class="checkmark"></span>
+                            <label>
+                                <input type="checkbox" name="interesse[]" value="informatica-basica">
+                                Informática Básica
                             </label>
                         </div>
-                        
-                        <div class="button-container">
-                            <button type="button" class="btn-prev" onclick="previousSection(2)">Voltar</button>
-                            <button type="button" class="btn-next" onclick="nextSection(4)">Avançar</button>
-                        </div>
 
+                        <button type="button" onclick="previousSection(2)">Voltar</button>
+                        <button type="button" onclick="nextSection(4)">Avançar</button>
                     </div>
 
                     <!-- Seção 4 -->
                     <div class="form-section" id="section4" style="display: none;">
                         <div class="form-group">
-                            <div class="label-forms">
-                                <label for="nome">Email</label>
-                                <label class="label-required">(Campo obrigatório)
-                            </div>
+                            <label for="email">Email:</label>
                             <input type="email" id="email" name="email" required>
                         </div>
 
                         <div class="form-grid">
                             <div class="form-item">
-                                <label for="senha">Senha</label>
-                                <input type="password" id="senha" name="senha" required>
+                                <label for="senha">Senha:</label>
+                                <input type="password" id="senha" name="pass" required>
                             </div>
 
                             <div class="form-group">
-                                <label for="confirmSenha">Confirmar Senha</label>
+                                <label for="confirmSenha">Confirmar Senha:</label>
                                 <input type="password" id="confirmSenha" name="confirmSenha" required>
                             </div>
                         </div>
 
-                        <div class="button-container">
-                            <button type="button" class="btn-prev" onclick="previousSection(3)">Voltar</button>
-                            <button type="submit" class="btn-next">
-                                <a class="final-link" href="http://localhost/projeto/pages/login.php">Finalizar</a>
-                            </button>
-                        </div>
-
+                        <button type="button" onclick="previousSection(3)">Voltar</button>
+                        <button name="submit" type="submit">Finalizar</button>
                     </div>
 
                 </form>
@@ -215,48 +190,71 @@
     <script src="../scripts/cadastro.js"></script>
 
     <?php
-    // include('conexao.php');
-        if (isset($_POST['salvar']) && isset($_POST['email']) && isset($_POST['pass'])){
-        
-        $email= mysqli_real_escape_string($mysqli,$_POST['email']);
-        $senha= mysqli_real_escape_string($mysqli,$_POST['pass']);
-        $cripto= password_hash($senha, PASSWORD_DEFAULT);
-    
-        //VALIDAÇÃO DE CAMPO VAZIO
-        if ($matri=="" || $matri==null){
-            echo "'Úsuario não pode ser vazio.";
-            exit();
-        }
-    
-        if ($email=="" || $email==null){
-            echo "Email não pode ser vazio.";
-            exit();
-        }
-    
-        if ($senha=="" || $senha==null){
-            echo "Senha não pode ser vazia.";
-            exit();
-        }
-        if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-            echo "<b style='color:red'>Formato de email inválido!</b>";
-            exit();
-        }
+include('conexao.php');
 
-        $result = $mysqli->query("SELECT COUNT(*) FROM user_com WHERE matri = '{$matri}'");
-        $result2 = $mysqli->query("SELECT COUNT(*) FROM user_com WHERE email = '{$email}'");
-        $row = $result->fetch_row();
-        $row2 = $result2->fetch_row();
+if (isset($_POST['submit'])) {
+    $nome = $_POST['nome'];
+    $cpf = $_POST['cpf'];
+    $nascimento = $_POST['nascimento'];
+    $genero = $_POST['genero'];
+    $ocupacao = $_POST['ocupacao'];
+    $escolaridade = $_POST['escolaridade'];
+    $estado = $_POST['estado'];
+    $cidade = $_POST['cidade'];
+    $email = $_POST['email'];
+    $senha = $_POST['pass'];
+    $interesse = $_POST['interesse'];
 
-        if ($row[0] > 0 || $row2[0] > 0) {
-            echo "<b style='color:red'>Esse usuário já existe.</b>";
-        } else {
-            $sql = $mysqli->prepare("INSERT INTO user_com(matri,email,pass) VALUES ('$matri','$email','$cripto')");
-            $sql->execute();
-            echo "<b style='color:green'>Úsuario inserido com sucesso!</b>";
-        }
+    // Validate user input
+    if (empty($nome) || empty($cpf) || empty($nascimento) || empty($genero) || empty($ocupacao) || empty($escolaridade) || empty($estado) || empty($cidade) || empty($email) || empty($senha)) {
+        echo "Preencha todos os campos obrigatórios.";
+        exit();
+    }
 
+    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        echo "Formato de email inválido!";
+        exit();
+    }
+
+    // Check if CPF already exists
+    $stmt = $mysqli->prepare("SELECT COUNT(*) FROM alunos WHERE cpf = ?");
+    $stmt->bind_param("s", $cpf);
+    $stmt->execute();
+    $result = $stmt->get_result();
+    $row = $result->fetch_row();
+
+    if ($row[0] > 0) {
+        echo "<b style='color:red'>Esse usuário já existe.</b>";
+        exit();
+    }
+
+    // Hash password using a secure algorithm
+    $cripto = password_hash($senha, PASSWORD_ARGON2ID);
+
+    // Prepare and execute the query
+    $stmt = $mysqli->prepare("INSERT INTO alunos (nome, cpf, nascimento, genero, ocupacao, escolaridade, estado, cidade, emailaluno	, pass) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+    $stmt->bind_param("ssssssssss", $nome, $cpf, $nascimento, $genero, $ocupacao, $escolaridade, $estado, $cidade, $email, $cripto);
+    $stmt->execute();
+    $stmt2 = $mysqli->prepare("SELECT COUNT(*) FROM empresas WHERE email = ?");
+    $stmt2->bind_param("s", $email);
+    $stmt2->execute();
+
+    if ($stmt->affected_rows > 0) {
+        echo "<b style='color:green'>Úsuario inserido com sucesso!</b>";
+    } else {
+        echo "<b style='color:red'>Erro ao inserir usuário.</b>";
+    }
+
+    // Insert interests
+    if (!empty($interesse)) {
+        foreach ($interesse as $i) {
+            $stmt = $mysqli->prepare("INSERT INTO interesses (cpf, interesse) VALUES (?, ?)");
+            $stmt->bind_param("ss", $cpf, $i);
+            $stmt->execute();
         }
-    ?>
+    }
+}
+?>
 </body>
 
 </html>

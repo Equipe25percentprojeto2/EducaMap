@@ -23,7 +23,7 @@
 </head>
 
 <body>
-    
+    <?php include("protect.php"); ?>
   <nav class="navbar">
     <div class="logo">
       <img src="http://localhost/projeto/Images/logos/Logo.png" alt="Logo">
@@ -46,10 +46,10 @@
       </div>
     </div>
 
-    <!--<div class="user-menu">
+    <div class="user-menu">
 
         <img src="../Images/profiles/avatar.png" alt="Foto de Perfil" class="profile-pic">
-        <span class="username">Rosália de Castro</span>
+        <span class="username"><?php echo "$_SESSION['nome']"; ?></span>
 
         <button class="dropdown-btn">
           <span class="material-symbols-outlined" style="color: #2E41DD;">expand_circle_down</span>
@@ -61,7 +61,7 @@
             <li><span class="material-symbols-rounded" style="color: #2E41DD;">forward</span><a href="#">Sair</a></li>
         </ul>
 
-    </div>-->
+    </div>
   </nav>
 
   <div class="banner-placeholder"></div>
