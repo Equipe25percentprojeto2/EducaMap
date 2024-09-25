@@ -81,7 +81,7 @@
                     </div>
 
                     <button type="submit" name="submit" class="btn-next" style="margin-top: 20px;">
-                    <a class="final-link" href="http://localhost/projeto/pages/login.php">Finalizar</a>
+                    <a class="final-link" href="http://localhost/projeto/pages/empresas/login-emp.html">Finalizar</a>
                     </button>
 
                 </form>

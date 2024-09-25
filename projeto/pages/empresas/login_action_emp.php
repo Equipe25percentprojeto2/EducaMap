@@ -2,7 +2,7 @@
     include('conexao.php');
 
     if (empty($_POST['email']) || empty($_POST['pass'])) {
-     //   header('Location: login.html');
+        header('Location: pages/empresas/login-emp.php');
         exit();
     }
 
@@ -21,17 +21,18 @@
     }
 
     // Prepare and execute the query
-    $stmt = $mysqli->prepare("SELECT nome, emailaluno, pass, cpf FROM alunos WHERE emailaluno = ?");    $stmt->bind_param("s", $email);
+    $stmt = $mysqli->prepare("SELECT nomempresa, emailempresa, cnpj, pass FROM empresas WHERE emailempresa = ?");    
+    $stmt->bind_param("s", $email);
     $stmt->execute();
     $result = $stmt->get_result();
 
     if ($result->num_rows == 1) {
         $user = $result->fetch_assoc();
         if (password_verify($senha, $user['pass'])) {
-            $nome = $user['nome'];
-            $cpf = $user['cpf'];
+            $nome = $user['nomempresa'];
+            $cnpj = $user['cnpj'];
             session_start(); // Inicia a sessão
-            $_SESSION['usuario_logado'] = array('nome' => $nome, 'cpf' => $cpf); // Armazena os dados do usuário na sessão
+            $_SESSION['usuario_logado'] = array('nomempresa' => $nome, 'cnpj' => $cnpj); // Armazena os dados do usuário na sessão
             header("Location: home.php");
             exit();
         } else {

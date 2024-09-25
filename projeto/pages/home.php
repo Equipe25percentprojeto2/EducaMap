@@ -23,47 +23,49 @@
 </head>
 
 <body>
-    <?php include("protect.php"); ?>
+    <?php //include("protect.php"); ?>
   <nav class="navbar">
-    <div class="logo">
-      <img src="http://localhost/projeto/Images/logos/Logo.png" alt="Logo">
-    </div>
+  <div class="logo">
+    <img src="http://localhost/projeto/Images/logos/Logo.png" alt="Logo">
+  </div>
 
-    <div class="search-bar">
-      <span class="material-symbols-outlined" style="color: #2E41DD;">search</span>
-      <input type="text" placeholder="Busque eventos e cursos">
-    </div>
+  <div class="search-bar">
+    <span class="material-symbols-outlined" style="color: #2E41DD;">search</span>
+    <input type="text" placeholder="Busque eventos e cursos">
+  </div>
 
-    <div class="log-menu">
+  <div class="log-menu">
+    <?php
+    if (isset($_SESSION['usuario_logado'])) {
+      ?>
+      <div class="user-menu">
+        <img src="../Images/profiles/avatar.png" alt="Foto de Perfil" class="profile-pic">
+        <span class="username"><?php echo implode(' ', array_slice(explode(' ', $_SESSION['usuario_logado']['nome']), 0, 2)); ?></span>        <button class="dropdown-btn">
+          <span class="material-symbols-outlined" style="color: #2E41DD;">expand_circle_down</span>
+        </button>
+        <ul class="dropdown-menu">
+          <li><span class="material-symbols-rounded" style="color: #2E41DD;">school</span><a href="http://localhost/projeto/pages/areadoaluno/cursos_salvos.php">Área do Aluno</a></li>
+          <li><span class="material-symbols-rounded" style="color: #2E41DD;">map</span><a href="http://localhost/projeto/pages/mapa.php">Localizar Cursos e Eventos</a></li>
+          <li><span class="material-symbols-rounded" style="color: #2E41DD;">forward</span><a href="#">Sair</a></li>
+        </ul>
+      </div>
+      <?php
+    } else {
+      ?>
       <div class="nav-buttons">
         <a href="http://localhost/projeto/pages/empresas/login-emp.php">
           <button class="org-button">Sou uma Organização</button>
         </a>
-
         <a href="http://localhost/projeto/pages/login.php">
           <button class="account-button">Acessar Conta</button>
         </a>
       </div>
-    </div>
-
-    <div class="user-menu">
-
-        <img src="../Images/profiles/avatar.png" alt="Foto de Perfil" class="profile-pic">
-        <span class="username"><?php echo "$_SESSION['nome']"; ?></span>
-
-        <button class="dropdown-btn">
-          <span class="material-symbols-outlined" style="color: #2E41DD;">expand_circle_down</span>
-        </button>
-
-        <ul class="dropdown-menu">
-            <li><span class="material-symbols-rounded" style="color: #2E41DD;">school</span><a href="http://localhost/projeto/pages/areadoaluno/cursos_salvos.php">Área do Aluno</a></li>
-            <li><span class="material-symbols-rounded" style="color: #2E41DD;">map</span><a href="http://localhost/projeto/pages/mapa.php">Localizar Cursos e Eventos</a></li>
-            <li><span class="material-symbols-rounded" style="color: #2E41DD;">forward</span><a href="#">Sair</a></li>
-        </ul>
-
-    </div>
+      <?php
+    }
+    ?>
+  </div>
   </nav>
-
+  
   <div class="banner-placeholder"></div>
   
   <div class="page-container">

@@ -17,34 +17,76 @@
     </style>
 
     <title>Document</title>
-
+    <?php include("protect.php"); ?>
 </head>
-
+   
     <nav class="navbar">
-        <div class="logo">
-        <img src="http://localhost/projeto/Images/logos/Logo.png" alt="Logo">
+  <div class="logo">
+    <img src="http://localhost/projeto/Images/logos/Logo.png" alt="Logo">
+  </div>
+
+  <div class="search-bar">
+    <span class="material-symbols-outlined" style="color: #2E41DD;">search</span>
+    <input type="text" placeholder="Busque eventos e cursos">
+  </div>
+
+  <div class="log-menu">
+    <?php
+   
+     
+        if (isset($_SESSION['usuario_logado'])) {
+      ?>
+      <div class="user-menu">
+        <img src="../Images/profiles/avatar.png" alt="Foto de Perfil" class="profile-pic">
+        <span class="username"><?php echo implode(' ', array_slice(explode(' ', $_SESSION['usuario_logado']['nome']), 0, 2)); ?></span>        <button class="dropdown-btn">
+          <span class="material-symbols-outlined" style="color: #2E41DD;">expand_circle_down</span>
+        </button>
+        <ul class="dropdown-menu">
+          <li><span class="material-symbols-rounded" style="color: #2E41DD;">school</span><a href="http://localhost/projeto/pages/areadoaluno/cursos_salvos.php">Área do Aluno</a></li>
+          <li><span class="material-symbols-rounded" style="color: #2E41DD;">map</span><a href="http://localhost/projeto/pages/mapa.php">Localizar Cursos e Eventos</a></li>
+          <li><span class="material-symbols-rounded" style="color: #2E41DD;">forward</span><a href="#">Sair</a></li>
+        </ul>
+      </div>
+      <?php
+    }
+    ?>
+  </div>
+  </nav>
+  <div class="sidebar">
+            <div class="profile">
+                <img src="http://localhost/projeto/Images/profiles/user.png" alt="Foto do Usuário" class="profile-photo">
+                <span class="profile-name"><?php echo $_SESSION['usuario_logado']['nome']; ?></span>
+            </div>
+            <nav class="menu">
+                <a href="http://localhost/projeto/pages/areadoaluno/cursos_salvos.php" class="menu-item">
+                    <span class="material-symbols-rounded">bookmark</span>
+                    <p>Cursos Salvos</p>
+                </a>
+                <a href="http://localhost/projeto/pages/areadoaluno/favoritos.php" class="menu-item">
+                    <span class="material-symbols-rounded">favorite</span>
+                    <p>Favoritos</p>
+                </a>
+                <a href="http://localhost/projeto/pages/areadoaluno/notificacoes.php" class="menu-item">
+                    <span class="material-symbols-rounded">notifications</span>
+                    <p>Notificações</p>
+                </a>
+                <a href="http://localhost/projeto/pages/areadoaluno/conta.php" class="menu-item">
+                    <span class="material-symbols-rounded">account_circle</span>
+                    <p>Conta</p>
+                </a>
+                <a href="http://localhost/projeto/pages/areadoaluno/ajuda.php" class="menu-item">
+                    <span class="material-symbols-rounded">help</span>
+                    <p>Ajuda</p>
+                </a>
+                <a href="http://localhost/projeto/pages/home.php" class="menu-item logout">
+                    <span class="material-symbols-rounded"><?php session_destroy();?> Sair</span>
+                    <p>Sair</p>
+                </a>
+            </nav>
         </div>
-
-        <div class="user-menu">
-
-            <img src="http://localhost/projeto/Images/profiles/avatar.png" alt="Foto de Perfil" class="profile-pic">
-            <span class="username">Rosália de Castro</span>
-
-            <button class="dropdown-btn">
-            <span class="material-symbols-outlined" style="color: #2E41DD;">expand_circle_down</span>
-            </button>
-
-            <ul class="dropdown-menu">
-                <li><span class="material-symbols-rounded" style="color: #2E41DD;">school</span><a href="http://localhost/projeto/pages/areadoaluno/cursos_salvos.html">Área do Aluno</a></li>
-                <li><span class="material-symbols-rounded" style="color: #2E41DD;">map</span><a href="http://localhost/projeto/pages/mapa.php">Localizar Cursos e Eventos</a></li>
-                <li><span class="material-symbols-rounded" style="color: #2E41DD;">forward</span><a href="#">Sair</a></li>
-            </ul>
-
-        </div>
-    </nav>
 
     <div class="sidebar-container"></div>
 
-    <script src="http://localhost/projeto/scripts/sidebar.js"></script>
+   <!-- <script src="http://localhost/projeto/scripts/sidebar.js"></script>-->
 
 </html>

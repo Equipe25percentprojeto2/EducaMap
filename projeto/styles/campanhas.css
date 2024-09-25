@@ -1,0 +1,162 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0; /* Remover margens do body */
+    padding: 0; /* Remover padding do body */
+}
+
+/* Navbar estilizada */
+.navbar {
+    background-color: #fff; /* Exemplo de cor de fundo */
+    padding: 15px; /* Espaçamento da navbar */
+}
+
+/* Container principal com Grid */
+.layout-container {
+    display: grid;
+    grid-template-columns: 200px 1fr; /* Sidebar com 200px e conteúdo principal ocupando o restante */
+    gap: 20px; /* Espaçamento entre sidebar e conteúdo */
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+/* Sidebar fixa */
+.sidebar-emp-container {
+    position: fixed; /* Fixa a sidebar */
+    width: 200px; /* Largura reduzida da sidebar */
+    height: 100vh; /* Ocupa a altura total da tela */
+    background-color: #ffffff; /* Cor da sidebar */
+    padding: 20px;
+    box-sizing: border-box;
+    z-index: 10; /* Z-index maior para garantir que fique sobre os cards */
+}
+
+/* Container para campanhas */
+#campanhas-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* Espaçamento entre os cards */
+    margin-top: 20px; /* Abaixo da navbar */
+    z-index: 1; /* Z-index menor que a sidebar */
+}
+
+/* Card de campanha */
+.card-campanha {
+    display: flex;
+    border: 1px solid #D6D6D6;
+    border-radius: 10px;
+    padding: 20px;
+    background-color: #FEFEFE;
+    max-width: 100%;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Seções da imagem e informações do card */
+.image-section img {
+    max-width: 300px;
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.info-section {
+    flex: 1;
+    padding-left: 20px;
+}
+
+.info-section h2 {
+    margin: 0;
+    font-size: 20px;
+    color: #181818;
+}
+
+.date-time,
+.actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.material-icons {
+    vertical-align: middle;
+    color: #2E41DD;
+}
+
+.created-date {
+    margin-top: 10px;
+    color: #484848;
+}
+
+/* Estilo para botões */
+.buttons {
+    display: flex;
+    gap: 10px; /* Espaçamento entre os botões */
+    margin-top: 10px; /* Espaçamento entre os botões e o conteúdo acima */
+}
+
+button {
+    padding: 10px 15px;
+    border-radius: 12px;
+    cursor: pointer;
+    font-size: 14px;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Botão vermelho */
+.btn-red {
+    background-color: #CC415E;
+    color: white;
+    border: none;
+}
+
+/* Botões outlined com a cor 2E41DD */
+.btn-outlined-blue {
+    background-color: transparent;
+    color: #2E41DD;
+    border: 2px solid #2E41DD;
+}
+
+/* Estilos de hover */
+.btn-red:hover {
+    background-color: #b03650; /* Cor mais escura no hover */
+}
+
+.btn-outlined-blue:hover {
+    background-color: #f0f0f0; /* Leve fundo cinza claro no hover */
+}
+
+.campanhas-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px; /* Espaçamento abaixo do cabeçalho */
+}
+
+.add-campanha {
+    background-color: #2E41DD; /* Cor do botão */
+    color: white; /* Cor do texto */
+    padding: 10px 15px; /* Espaçamento interno */
+    border-radius: 12px; /* Bordas arredondadas */
+    border: none; /* Sem borda */
+    cursor: pointer; /* Mão ao passar o mouse */
+    font-family: 'Poppins', sans-serif; /* Fonte */
+    text-decoration: none; /* Remove sublinhado */
+    display: inline-block; /* Para respeitar o padding */
+}
+
+.add-campanha:hover {
+    background-color: #1c2b7c; /* Cor mais escura no hover */
+}
+
+.campanha-area{
+    margin-left: 310px; /* Margem esquerda ajustada para maior que a largura da sidebar */
+    margin-right: 20px;
+    margin-top: 20px;
+}
+
+.buttons-container {
+    display: flex;
+    gap: 10px;
+}
