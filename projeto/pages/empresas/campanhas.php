@@ -69,8 +69,8 @@
                     <span class="material-symbols-rounded">help</span>
                     <p>Ajuda</p>
                 </a>
-                <a href="http://localhost/projeto/pages/empresas/login-emp.php" class="menu-item logout">
-                    <span class="material-symbols-rounded">logout</span>
+                <a href="http://localhost/projeto/pages/empresas/logout-emp.php" class="menu-item logout">
+                <span class="material-symbols-rounded">Sair</span>
                     <p>Sair</p>
                 </a>
             </nav>

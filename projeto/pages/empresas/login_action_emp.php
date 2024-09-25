@@ -1,44 +1,48 @@
 <?php
-    include('conexao.php');
+include("conexao.php");
+// Verifica se os campos estão vazios
+if (empty($_POST['email']) || empty($_POST['pass'])) {
+    $erro = "Preencha todos os campos obrigatórios.";
+    header('Location: pages/empresas/login-emp.php?erro=' . urlencode($erro));
+    exit();
+}
 
-    if (empty($_POST['email']) || empty($_POST['pass'])) {
-        header('Location: pages/empresas/login-emp.php');
-        exit();
-    }
+// Valida o input do usuário
+$email = $_POST['email'];
+$senha = $_POST['pass'];
 
-    $email = $_POST['email'];
-    $senha = $_POST['pass'];
+if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+    $erro = "Formato de email inválido!";
+    header('Location: pages/empresas/login-emp.php?erro=' . urlencode($erro));
+    exit();
+}
 
-    // Validate user input
-    if (empty($email) || empty($senha)) {
-        echo "Preencha todos os campos obrigatórios.";
-        exit();
-    }
+// Prepara e executa a query
+$stmt = $mysqli->prepare("SELECT nomempresa, emailempresa, cnpj, pass FROM empresas WHERE emailempresa = ?");
+$stmt->bind_param("s", $email);
+$stmt->execute();
+$result = $stmt->get_result();
 
-    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-        echo "Formato de email inválido!";
-        exit();
-    }
-
-    // Prepare and execute the query
-    $stmt = $mysqli->prepare("SELECT nomempresa, emailempresa, cnpj, pass FROM empresas WHERE emailempresa = ?");    
-    $stmt->bind_param("s", $email);
-    $stmt->execute();
-    $result = $stmt->get_result();
-
-    if ($result->num_rows == 1) {
-        $user = $result->fetch_assoc();
-        if (password_verify($senha, $user['pass'])) {
-            $nome = $user['nomempresa'];
-            $cnpj = $user['cnpj'];
-            session_start(); // Inicia a sessão
-            $_SESSION['usuario_logado'] = array('nomempresa' => $nome, 'cnpj' => $cnpj); // Armazena os dados do usuário na sessão
-            header("Location: campanhas.php");
-            exit();
-        } else {
-            echo "Senha incorreta.";
+if ($result->num_rows == 1) {
+    $user = $result->fetch_assoc();
+    if (password_verify($senha, $user['pass'])) {
+        $nome = $user['nomempresa'];
+        $cnpj = $user['cnpj'];
+        // Verifica se a sessão já está iniciada
+        if (!isset($_SESSION)) {
+            session_start();
         }
+        $_SESSION['usuario_logado'] = array('nomempresa' => $nome, 'cnpj' => $cnpj);
+        header("Location: campanhas.php");
+        exit();
     } else {
-        echo "Usuário não encontrado.";
+        $erro = "Senha incorreta.";
+        header('Location: pages/empresas/login-emp.php?erro=' . urlencode($erro));
+        exit();
     }
+} else {
+    $erro = "Usuário não encontrado.";
+    header('Location: pages/empresas/login-emp.php?erro=' . urlencode($erro));
+    exit();
+}
 ?>
