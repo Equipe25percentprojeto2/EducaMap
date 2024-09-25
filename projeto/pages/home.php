@@ -23,7 +23,7 @@
 </head>
 
 <body>
-    <?php //include("protect.php"); ?>
+    <?php include("protect.php"); ?>
   <nav class="navbar">
   <div class="logo">
     <img src="http://localhost/projeto/Images/logos/Logo.png" alt="Logo">

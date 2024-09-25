@@ -33,7 +33,7 @@
             $cnpj = $user['cnpj'];
             session_start(); // Inicia a sessão
             $_SESSION['usuario_logado'] = array('nomempresa' => $nome, 'cnpj' => $cnpj); // Armazena os dados do usuário na sessão
-            header("Location: home.php");
+            header("Location: campanhas.php");
             exit();
         } else {
             echo "Senha incorreta.";

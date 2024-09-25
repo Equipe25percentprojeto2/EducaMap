@@ -38,7 +38,8 @@
       ?>
       <div class="user-menu">
         <img src="../Images/profiles/avatar.png" alt="Foto de Perfil" class="profile-pic">
-        <span class="username"><?php echo implode(' ', array_slice(explode(' ', $_SESSION['usuario_logado']['nome']), 0, 2)); ?></span>        <button class="dropdown-btn">
+        <span class="username"><?php echo implode(' ', array_slice(explode(' ', $_SESSION['usuario_logado']['nome']), 0, 2)); ?></span>        
+        <button class="dropdown-btn">
           <span class="material-symbols-outlined" style="color: #2E41DD;">expand_circle_down</span>
         </button>
         <ul class="dropdown-menu">

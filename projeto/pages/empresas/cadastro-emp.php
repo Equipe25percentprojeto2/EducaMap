@@ -134,7 +134,7 @@
             $stmt->bind_param("ssssss", $nome, $cnpj, $endereco, $telefone, $email, $cripto);
             if ($stmt->execute()) {
                 echo "<b style='color:green'>Empresa inserida com sucesso!</b>";
-              //  header("Location: login-emp.php"); // Redireciona para a página de login
+                header("Location: login-emp.html"); // Redireciona para a página de login
                 exit();
             } else {
                 var_dump($_POST);

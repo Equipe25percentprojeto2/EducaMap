@@ -25,7 +25,7 @@
 </head>
 
 <body>
-    
+<?php include("protect_emp.php"); ?>  
   <nav class="navbar">
     <div class="logo">
       <img src="http://localhost/projeto/Images/logos/Logo.png" alt="Logo">
@@ -35,13 +35,47 @@
     <div class="user-menu">
 
         <img src="http://localhost/projeto/Images/profiles/learn.png" alt="Foto de Perfil" class="profile-pic">
-        <span class="username">Instituto Learn</span>
+        <span class="username"><?php echo implode(' ', array_slice(explode(' ', $_SESSION['usuario_logado']['nomempresa']), 0, 2)); ?></span>        
 
     </div>
 
   </nav>
 
-  <div class="sidebar-emp-container"></div>
+  <div class="sidebar-emp-container">
+  <div class="sidebar">
+      <div class="profile">
+                <img src="http://localhost/projeto/Images/profiles/learn.png" alt="Foto do Usuário" class="profile-photo">
+                <span class="profile-name"><?php echo $_SESSION['usuario_logado']['nomempresa']; ?></span>        
+
+            </div>
+            <nav class="menu">
+                <a href="http://localhost/projeto/pages/empresas/dashboard.php" class="menu-item">
+                    <span class="material-symbols-rounded">home</span>
+                    <p>Dashboard</p>
+                </a>
+                <a href="http://localhost/projeto/pages/empresas/campanhas.php" class="menu-item">
+                    <span class="material-symbols-rounded">flag</span>
+                    <p>Campanhas</p>
+                </a>
+                <a href="http://localhost/projeto/pages/empresas/insights.php" class="menu-item">
+                    <span class="material-symbols-rounded">insights</span>
+                    <p>Insights</p>
+                </a>
+                <a href="http://localhost/projeto/pages/empresas/relatorios.php" class="menu-item">
+                    <span class="material-symbols-rounded">comment</span>
+                    <p>Relatórios</p>
+                </a>
+                <a href="http://localhost/projeto/pages/empresas/ajuda-emp.php" class="menu-item">
+                    <span class="material-symbols-rounded">help</span>
+                    <p>Ajuda</p>
+                </a>
+                <a href="http://localhost/projeto/pages/empresas/login-emp.php" class="menu-item logout">
+                    <span class="material-symbols-rounded">logout</span>
+                    <p>Sair</p>
+                </a>
+            </nav>
+        </div>
+  </div>
 
 
   <div class="campanha-area">
@@ -53,7 +87,7 @@
     <div id="campanhas-container"></div>
   </div>
 
-  <script src="http://localhost/projeto/scripts/sidebar-emp.js"></script>
+  <!--<script src="http://localhost/projeto/scripts/sidebar-emp.js"></script>-->
   <script src="http://localhost/projeto/scripts/campanhas.js"></script>
 
 </body>
