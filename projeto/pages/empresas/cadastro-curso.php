@@ -132,12 +132,12 @@
                     <div class="form-group">
                         <label for="areas">Áreas <span class="required">(campo obrigatório)</span></label>
                         <select id="areas" name="areas" class="form-control">
-                            <option value="informatica">Informática</option>
-                            <option value="seguranca">Segurança</option>
-                            <option value="design">Design</option>
-                            <option value="desenvolvimento">Desenvolvimento</option>
-                            <option value="analise">Análise</option>
-                            <option value="gestao">Gestão</option>
+                            <option value="Informática básica">Informática</option>
+                            <option value="Segurança da informação">Segurança</option>
+                            <option value="Design digital">Design</option>
+                            <option value="Desenvolvimento de Sistemas">Desenvolvimento</option>
+                            <option value="Análise de dados">Análise</option>
+                            <option value="Gestão de projetos">Gestão</option>
                         </select>
                     </div>
                 </div>
