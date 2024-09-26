@@ -75,7 +75,7 @@
 
                         <div class="form-item">
                             <label for="nascimento">Senha</label>
-                            <input type="password" id="password" name="pass" required>
+                            <input type="text" id="password" name="pass" required>
                         </div>
                         
                     </div>

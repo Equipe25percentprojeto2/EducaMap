@@ -277,10 +277,11 @@
                     }
 
                     // Move o arquivo para o diretório de destino
-                    $pasta = "pages/bannerscursos/";
+                    $pasta = "C:/xampp/htdocs/projeto/pages/bannerscursos";
+                    $caminho = "projeto/pages/bannerscursos/";
                     $newnaArq = uniqid();
-                    move_uploaded_file($banner['tmp_name'], $pasta . $newnaArq . "." . $ext);
-                    $banner_nome = $pasta . $newnaArq . "." . $ext;
+                    move_uploaded_file($banner['tmp_name'], $pasta .  $newnaArq . "." . $ext);
+                    $banner_nome = $caminho . $newnaArq . "." . $ext;
                     $stmt = $mysqli->prepare("INSERT INTO cursos (cnpj, nomecurso, banner, descricaocurso, modalidade, valor, cargahoraria, datainicio, horainicio, area, enderecocurso, linkdeinscricao, telefone, requisitos, conteudo) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
                     $stmt->bind_param("sssssssssssssss", $cnpj, $title, $banner_nome, $descricao, $modalidade, $valor, $carga_horaria, $data_inicio, $hora_inicio, $areas, $endereco_completo, $link_inscricao, $telefone_contato, $requisitos, $conteudo);
                     $stmt->execute();

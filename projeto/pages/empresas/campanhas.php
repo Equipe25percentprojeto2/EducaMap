@@ -96,10 +96,11 @@
 
     // Loop para exibir as campanhas
     while ($curso = $result->fetch_assoc()) {
+        $caminho = "http://localhost/projeto/";
         ?>
         <div class="card-campanha">
         <div class="image-section">
-                        <img src="<?php echo 'localhost/' .  $curso['banner']; ?>" alt="<?php echo$curso['nomecurso']?>" />
+                        <img src="<?php echo $caminho . $curso['banner']; ?>" alt="<?php echo$curso['nomecurso']?>" />
                     </div>
                     <div class="info-section">
                         <h2><?php echo$curso['nomecurso']?></h2>
