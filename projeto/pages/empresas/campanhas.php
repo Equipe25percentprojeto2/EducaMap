@@ -89,19 +89,20 @@
     <?php
     // Conexão com o banco de dados
     include('conexao.php');
-
+    
     // Query para buscar as campanhas
     $query = "SELECT * FROM cursos WHERE cnpj = '".$_SESSION['usuario_logado']['cnpj']."'";
     $result = $mysqli->query($query);
+    
 
     // Loop para exibir as campanhas
-    while ($curso = $result->fetch_assoc()) {
-        $caminho = "http://localhost/projeto/";
+        while ($curso = $result->fetch_assoc()) {
+        $bannerPath = 'http://localhost/' . $curso['banner'];
         ?>
         <div class="card-campanha">
         <div class="image-section">
-                        <img src="<?php echo $caminho . $curso['banner']; ?>" alt="<?php echo$curso['nomecurso']?>" />
-                    </div>
+        <img src="<?php echo $bannerPath; ?>" alt="<?php echo$curso['nomecurso']?>" />
+        </div>
                     <div class="info-section">
                         <h2><?php echo$curso['nomecurso']?></h2>
 

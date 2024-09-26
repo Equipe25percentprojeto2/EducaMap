@@ -277,8 +277,8 @@
                     }
 
                     // Move o arquivo para o diretório de destino
-                    $pasta = "C:/xampp/htdocs/projeto/pages/bannerscursos";
-                    $caminho = "projeto/pages/bannerscursos/";
+                    $pasta = "C:/xampp/htdocs/projeto/pages/banner/";
+                    $caminho = "projeto/pages/banner/";
                     $newnaArq = uniqid();
                     move_uploaded_file($banner['tmp_name'], $pasta .  $newnaArq . "." . $ext);
                     $banner_nome = $caminho . $newnaArq . "." . $ext;
