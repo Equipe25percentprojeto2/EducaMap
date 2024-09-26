@@ -222,19 +222,21 @@
 
     </div>
 
-    <script src="http://localhost/projeto/scripts/sidebar-emp.js"></script>
+    <!--<script src="http://localhost/projeto/scripts/sidebar-emp.js"></script>-->
     <script src="http://localhost/projeto/scripts/cadastro-curso.js"></script>
     <?php
+    error_reporting(E_ALL);
 // Conexão com o banco de dados
         include('conexao.php');
  // Verifica se o usuário está logado
             if (!isset($_SESSION['usuario_logado'])) {
-                header('Location: login.php');
+                header('Location: login-emp.php');
                 exit();
             }
 
             // Verifica se o formulário foi enviado
             if (isset($_POST['submit'])) {
+                
                 // Valida os dados do formulário
                 $cnpj = $_SESSION['usuario_logado']['cnpj'];
                 $title = $_POST['course-title'];
@@ -252,7 +254,11 @@
                 $conteudo = $_POST['conteudo'];
 
                 // Verifica se os dados do formulário estão vazios
-                if (empty($title) || empty($descricao) || empty($modalidade) || empty($valor) || empty($carga_horaria) || empty($data_inicio) || empty($hora_inicio) || empty($areas) || empty($endereco_completo) || empty($link_inscricao) || empty($telefone_contato) || empty($requisitos) || empty($conteudo)) {
+                if (empty($title) || empty($descricao) || empty($modalidade) 
+                || empty($valor) || empty($carga_horaria) || empty($data_inicio) 
+                || empty($hora_inicio) || empty($areas) || empty($endereco_completo) 
+                || empty($link_inscricao) || empty($telefone_contato) || empty($requisitos) 
+                || empty($conteudo)) {
                     echo "<p color: 'red'>Preencha todos os campos obrigatórios.</p>";
                     exit();
                 }
@@ -261,7 +267,7 @@
                 if (isset($_FILES['banner'])) {
                     $banner = $_FILES['banner'];
                     if ($banner['error']) {
-                        die("Falha ao enviar arquivo.");
+                        echo "<p color='red'>Falha ao enviar arquivo.</p>";
                     }
 
                     // Verifica se o arquivo é válido
@@ -271,61 +277,56 @@
                     }
 
                     // Move o arquivo para o diretório de destino
-                    $pasta = "C:/xampp/htdocs/projeto/pages/bannerscursos/";
+                    $pasta = "pages/bannerscursos/";
                     $newnaArq = uniqid();
-                    move_uploaded_file($banner['tmp_name'], $pasta . $newnaArq . "." . $ext);
-                    $banner_nome = $newnaArq . "." . $ext;
-                } else {
-                    $banner_nome = null;
-                }
-
-                // Prepara e executa a consulta SQL
-                $stmt = $mysqli->prepare("INSERT INTO cursos (cnpj, nomecurso, banner, descricaocurso, modalidade, valor, cargahoraria, datainicio, horainicio, area, enderecocurso, linkdeinscricao, telefone, requisitos, conteudo) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
-                $stmt->bind_param("sssssssssssssss", $cnpj, $title, $banner_nome, $descricao, $modalidade, $valor, $carga_horaria, $data_inicio, $hora_inicio, $areas, $endereco_completo, $link_inscricao, $telefone_contato, $requisitos, $conteudo);
-                $stmt->execute();
-
-                // Verifica se o curso foi inserido corretamente
-                if ($stmt->affected_rows > 0) {
-                    $curso_id = $mysqli->insert_id;
-
+                    move_uploaded_file($banner['tmp_name'], $newnaArq . "." . $ext);
+                    $banner_nome = $pasta . $newnaArq . "." . $ext;
+                    $stmt = $mysqli->prepare("INSERT INTO cursos (cnpj, nomecurso, banner, descricaocurso, modalidade, valor, cargahoraria, datainicio, horainicio, area, enderecocurso, linkdeinscricao, telefone, requisitos, conteudo) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+                    $stmt->bind_param("sssssssssssssss", $cnpj, $title, $banner_nome, $descricao, $modalidade, $valor, $carga_horaria, $data_inicio, $hora_inicio, $areas, $endereco_completo, $link_inscricao, $telefone_contato, $requisitos, $conteudo);
+                    $stmt->execute();
+                    // ...
+                    if ($stmt->affected_rows > 0) {
+                        echo "<p color='red'>Curso inserido com sucesso</p>";
+                        $curso_id = $mysqli->insert_id;
                     // Insere os professores
-                    if (isset($_POST['nome-professor']) && isset($_FILES['foto-professor'])) {
-                        $professores = $_POST['nome-professor'];
-                        $fotos_professores = $_FILES['foto-professor'];
+                        if (isset($_POST['nome-professor']) && isset($_FILES['foto-professor'])) {
+                            $professores = $_POST['nome-professor'];
+                            $fotos_professores = $_FILES['foto-professor'];
+                            
+                            if (is_array($professores)) {
+                                foreach ($professores as $key => $professor) {
+                                    if (!empty($professor)) {
+                                        $foto_professor = $fotos_professores['name'][$key];
+                                        $ext = strtolower(pathinfo($foto_professor, PATHINFO_EXTENSION));
+                                        $newnaArq = uniqid();
+                                        move_uploaded_file($fotos_professores['tmp_name'][$key], "C:/xampp/htdocs/projeto/pages/fotosprofessores" . $newnaArq . "." . $ext);
+                                        $fotoarq = $newnaArq . "." . $ext;
+                                        $stmt_professor = $mysqli->prepare("INSERT INTO professores_curso (nome_prof, id_curso, foto_professor) VALUES (?, ?, ?)");
+                                        $stmt_professor->bind_param("sss", $professor, $curso_id, $fotoarq);
+                                        $stmt_professor->execute();
+                                    }
+                                }
+                            } else {
+                                $professor = $professores;
+                                if (!empty($professor)) {
+                                    $foto_professor = $fotos_professores;
 
-                        if (is_array($professores)) {
-                            foreach ($professores as $key => $professor) {
-                                $foto_professor = $fotos_professores['name'][$key];
-                                $ext = strtolower(pathinfo($foto_professor, PATHINFO_EXTENSION));
-                                $newnaArq = uniqid();
-                                move_uploaded_file($fotos_professores['tmp_name'][$key], "C:/xampp/htdocs/projeto/pages/fotosprofessores/" . $newnaArq . "." . $ext);
-                                $fotoarq = $newnaArq . "." . $ext;
-                                $stmt_professor = $mysqli->prepare("INSERT INTO professores_curso (nome_prof, id_curso, foto_professor) VALUES (?, ?, ?)");
-                                $stmt_professor->bind_param("sss", $professor, $curso_id, $fotoarq);
-                                $stmt_professor->execute();
+                                    $ext = strtolower(pathinfo($foto_professor['name'], PATHINFO_EXTENSION));
+                                    $newnaArq = uniqid();
+                                    move_uploaded_file($foto_professor['tmp_name'], "projeto/pages/fotosprofessores/" . $newnaArq . "." . $ext);
+                                    $fotoarq = $newnaArq . "." . $ext;
+                                    $stmt_professor = $mysqli->prepare("INSERT INTO professores_curso (nome_prof, id_curso, foto_professor) VALUES (?, ?, ?)");
+                                    $stmt_professor->bind_param("sss", $professor, $curso_id, $fotoarq);
+                                    $stmt_professor->execute();
+                                }
                             }
-                        } else {
-                            $professor = $professores;
-                            $foto_professor = $fotos_professores;
-
-                            $ext = strtolower(pathinfo($foto_professor['name'], PATHINFO_EXTENSION));
-                            $newnaArq = uniqid();
-                            move_uploaded_file($foto_professor['tmp_name'], "C:/xampp/htdocs/projeto/pages/fotosprofessores/" . $newnaArq . "." . $ext);
-                            $fotoarq = $newnaArq . "." . $ext;
-                            $stmt_professor = $mysqli->prepare("INSERT INTO professores_curso (nome_prof, id_curso, foto_professor) VALUES (?, ?, ?)");
-                            $stmt_professor->bind_param("sss", $professor, $curso_id, $fotoarq);
-                            $stmt_professor->execute();
                         }
-                    } else {
-                        echo "Erro ao inserir professores.";
                     }
-                } else {
-                    echo "Erro ao inserir curso.";
                 }
-
-                // Fecha a conexão com o banco de dados
-                $mysqli->close();
             }
+
+                    // Fecha a conexão com o banco de dados
+                    $mysqli->close();
             ?>
 
                 
