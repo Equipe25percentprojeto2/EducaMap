@@ -279,7 +279,7 @@
                     // Move o arquivo para o diretório de destino
                     $pasta = "pages/bannerscursos/";
                     $newnaArq = uniqid();
-                    move_uploaded_file($banner['tmp_name'], $newnaArq . "." . $ext);
+                    move_uploaded_file($banner['tmp_name'], $pasta . $newnaArq . "." . $ext);
                     $banner_nome = $pasta . $newnaArq . "." . $ext;
                     $stmt = $mysqli->prepare("INSERT INTO cursos (cnpj, nomecurso, banner, descricaocurso, modalidade, valor, cargahoraria, datainicio, horainicio, area, enderecocurso, linkdeinscricao, telefone, requisitos, conteudo) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
                     $stmt->bind_param("sssssssssssssss", $cnpj, $title, $banner_nome, $descricao, $modalidade, $valor, $carga_horaria, $data_inicio, $hora_inicio, $areas, $endereco_completo, $link_inscricao, $telefone_contato, $requisitos, $conteudo);
@@ -299,7 +299,7 @@
                                         $foto_professor = $fotos_professores['name'][$key];
                                         $ext = strtolower(pathinfo($foto_professor, PATHINFO_EXTENSION));
                                         $newnaArq = uniqid();
-                                        move_uploaded_file($fotos_professores['tmp_name'][$key], "C:/xampp/htdocs/projeto/pages/fotosprofessores" . $newnaArq . "." . $ext);
+                                        move_uploaded_file($fotos_professores['tmp_name'][$key], "C:/xampp/htdocs/projeto/pages/fotosprofessores/" . $newnaArq . "." . $ext);
                                         $fotoarq = $newnaArq . "." . $ext;
                                         $stmt_professor = $mysqli->prepare("INSERT INTO professores_curso (nome_prof, id_curso, foto_professor) VALUES (?, ?, ?)");
                                         $stmt_professor->bind_param("sss", $professor, $curso_id, $fotoarq);
