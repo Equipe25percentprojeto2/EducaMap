@@ -79,14 +79,16 @@
                     <span class="material-symbols-rounded">help</span>
                     <p>Ajuda</p>
                 </a>
-                <a href="http://localhost/projeto/pages/home.php" class="menu-item logout">
-                    <span class="material-symbols-rounded"><?php session_destroy();?> Sair</span>
+                <a href="http://localhost/projeto/pages/logout.php" class="menu-item logout">
+                    <span class="material-symbols-rounded">Sair</span>
                     <p>Sair</p>
                 </a>
             </nav>
         </div>
 
-    <div class="sidebar-container"></div>
+    <div class="sidebar-container">
+      
+    </div>
 
    <!-- <script src="http://localhost/projeto/scripts/sidebar.js"></script>-->
 

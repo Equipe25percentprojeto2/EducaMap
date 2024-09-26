@@ -1,17 +1,25 @@
-// Seleciona o botão do dropdown e o menu
-const dropdownBtn = document.querySelector('.dropdown-btn');
-const dropdownMenu = document.querySelector('.dropdown-menu');
-const dropdownIcon = document.querySelector('.dropdown-icon');
+// Selecionar todos os botões e menus de dropdown
+const dropdownButtons = document.querySelectorAll('.filter-button');
+const dropdownIcons = document.querySelectorAll('.material-symbols-rounded');
+const selectedFiltersDiv = document.getElementById('selected-filters');
 
+// Limite máximo de filtros
+const maxFilters = 4;
 
-// Adiciona evento de clique a cada botão
+// Adiciona evento de clique para cada botão
 dropdownButtons.forEach((dropdownBtn, index) => {
     const dropdownMenu = dropdownBtn.nextElementSibling;
     const dropdownIcon = dropdownIcons[index];
 
     dropdownBtn.addEventListener('click', function(e) {
-        // Impedir que o clique no botão feche imediatamente após abrir
         e.stopPropagation();
+
+        // Fecha outros dropdowns abertos
+        document.querySelectorAll('.dropdown-content').forEach(content => {
+            if (content !== dropdownMenu) {
+                content.classList.remove('show');
+            }
+        });
 
         // Alterna a exibição do menu dropdown
         dropdownMenu.classList.toggle('show');
@@ -19,58 +27,68 @@ dropdownButtons.forEach((dropdownBtn, index) => {
     });
 });
 
-// Fechar o dropdown ao clicar fora dele
-window.addEventListener('click', function() {
-    dropdownButtons.forEach((dropdownBtn, index) => {
-        const dropdownMenu = dropdownBtn.nextElementSibling;
-        const dropdownIcon = dropdownIcons[index];
+// Capturar a opção selecionada e exibi-la
+document.querySelectorAll('.dropdown-content a').forEach(option => {
+    option.addEventListener('click', function(e) {
+        e.preventDefault(); // Impede o comportamento padrão de links
 
+        // Verifica se o link tem o atributo 'data-filter'
+        const filterText = this.getAttribute('data-filter');
+        
+        if (!filterText) {
+            console.error('O item não possui o atributo "data-filter".');
+            return; // Se o 'data-filter' estiver faltando, não faça nada
+        }
+
+        const filterType = filterText.split(":")[0]; // Exemplo: "Data de início"
+
+        // Verifica se já existe uma opção selecionada desse filtro
+        const existingFilter = document.querySelector(`.selected-filter[data-filter-type="${filterType}"]`);
+        if (existingFilter) {
+            // Atualiza o valor se já houver um filtro desse tipo
+            existingFilter.textContent = filterText;
+        } else {
+            // Cria um novo elemento para o filtro selecionado
+            const newFilter = document.createElement('div');
+            newFilter.classList.add('selected-filter');
+            newFilter.setAttribute('data-filter-type', filterType);
+            newFilter.textContent = filterText;
+
+            // Adiciona um evento de clique para remover o filtro
+            newFilter.addEventListener('click', function() {
+                selectedFiltersDiv.removeChild(newFilter);
+            });
+
+            selectedFiltersDiv.appendChild(newFilter);
+        }
+
+        // Fecha o dropdown após a seleção
+        const dropdownMenu = this.closest('.dropdown-content');
         dropdownMenu.classList.remove('show');
+        const dropdownIcon = dropdownMenu.previousElementSibling.querySelector('.material-symbols-rounded');
         dropdownIcon.classList.remove('rotate');
     });
 });
 
-// Fechar o dropdown ao clicar fora, exceto se for no botão
-window.addEventListener('click', function(event) {
-    dropdownButtons.forEach((dropdownBtn, index) => {
-        const dropdownMenu = dropdownBtn.nextElementSibling;
-        const dropdownIcon = dropdownIcons[index];
+document.addEventListener('DOMContentLoaded', function () {
+    const userDropdownBtn = document.querySelector('.dropdown-btn'); // Botão de dropdown
+    const userMenu = document.querySelector('.dropdown-menu'); // Menu dropdown
 
-        if (!dropdownBtn.contains(event.target)) {
-            dropdownMenu.classList.remove('show');
-            dropdownIcon.classList.remove('rotate');
-        }
-    });
-});
+    if (userDropdownBtn && userMenu) {
+        // Adiciona evento de clique ao botão de dropdown
+        userDropdownBtn.addEventListener('click', function (e) {
+            e.stopPropagation(); // Previne que o clique feche o menu
+            
+            // Alterna a visibilidade do dropdown
+            userMenu.classList.toggle('show-dropdown');
+        });
 
-// Selecionar todos os dropdowns
-document.querySelectorAll('.filter-button').forEach(button => {
-    button.addEventListener('click', function(e) {
-        // Fechar outros dropdowns abertos
-        document.querySelectorAll('.dropdown-content').forEach(content => {
-            if (content !== this.nextElementSibling) {
-                content.classList.remove('show');
+        // Fecha o dropdown se clicar fora do botão/menu
+        document.addEventListener('click', function (e) {
+            if (!userMenu.contains(e.target) && !userDropdownBtn.contains(e.target)) {
+                userMenu.classList.remove('show-dropdown');
             }
         });
-
-        // Abrir/fechar o dropdown correspondente ao botão clicado
-        const dropdownContent = this.nextElementSibling;
-        dropdownContent.classList.toggle('show');
-
-        // Impedir que o clique feche imediatamente após abrir
-        e.stopPropagation();
-    });
+    }
 });
 
-// Direcionar para a página do card
-document.addEventListener('DOMContentLoaded', () => {
-    const cards = document.querySelectorAll('.card'); // Selecione os cards
-
-    cards.forEach(card => {
-        card.addEventListener('click', () => {
-            const courseId = card.getAttribute('data-id');
-            localStorage.setItem('selectedCourseId', courseId); // Salva o ID no localStorage
-            window.location.href = 'http://localhost/projeto/pages/info-curso.php'; // Redireciona para a página de detalhes
-        });
-    });
-});

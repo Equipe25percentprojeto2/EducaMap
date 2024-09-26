@@ -70,6 +70,10 @@ function adicionarNovoGrupoProfessor() {
         previewImage(event, this);
     };
 
+    // Modificar o nome dos campos para que sejam arrays
+    clonedInputs.querySelector('.file-input').name = 'foto-professor[]';
+    clonedInputs.querySelector('.form-control').name = 'nome-professor[]';
+
     // Adicionar o novo grupo ao container
     document.getElementById('container-professores').appendChild(clonedInputs);
 

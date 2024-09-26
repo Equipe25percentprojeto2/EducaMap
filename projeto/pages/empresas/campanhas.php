@@ -117,7 +117,7 @@
                         </div>
 
                         <div class="created-date">
-                            <span>Criado em: <?php echo$curso['datainicio']?> ás <?php echo$curso['horainicio']?></span>
+                            <span>Criado em: <?php echo $curso['datainicio']?> ás <?php echo$curso['horainicio']?></span>
                         </div>
 
                         <div class="buttons">

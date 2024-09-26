@@ -86,29 +86,30 @@ body {
     display: inline-block;
 }
 
-/* Estilo do conteúdo do dropdown */
+
 .dropdown-content {
     display: none;
     position: absolute;
     background-color: white;
-    min-width: 160px;
+    min-width: 150px;
     box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.1);
     z-index: 1;
-    border: 1px solid #ccc;
-    border-radius: 4px;
 }
 
-/* Estilo das opções do dropdown */
 .dropdown-content a {
     color: #333;
-    padding: 10px 15px;
+    padding: 10px 12px;
     text-decoration: none;
     display: block;
-    font-size: 14px;
 }
 
 .dropdown-content a:hover {
     background-color: #f1f1f1;
+}
+
+.material-symbols-rounded.rotate {
+    transform: rotate(180deg);
+    transition: transform 0.3s ease;
 }
 
 .dropdown-content.show {
@@ -140,6 +141,11 @@ body {
     z-index: 10;
 }
 
+/* Mostra o dropdown quando ativo */
+.show-dropdown {
+    display: block;
+}
+
 .dropdown-menu li {
     padding: 10px 0;
     display: flex;
@@ -147,24 +153,37 @@ body {
     border-bottom: 1px solid #000; /* Adiciona a linha divisória */
 }
 
-.dropdown-menu li:last-child {
-    border-bottom: none; /* Remove a linha divisória do último item */
-}
-
 .dropdown-menu li a {
     text-decoration: none;
-    color: #333;
+    color: #2E41DD;
 }
 
-.dropdown-menu li a:hover {
-    color: #000;
+.dropdown-menu li:hover {
+    background-color: #f1f1f1;
+}
+
+/* Classe para exibir o dropdown */
+.show-dropdown {
+    display: block;
 }
 
 /* Quando o menu está ativo, aumenta a altura máxima */
+
+/* Exibir o dropdown quando acionado */
 .show {
-    visibility: visible;
-    opacity: 1;
-    max-height: 300px; /* Define um valor suficiente para mostrar todas as opções */
+    display: block;
+}
+
+/* Responsividade para telas menores */
+@media (max-width: 768px) {
+    .filters {
+        flex-direction: column; /* Empilha os filtros verticalmente */
+        align-items: stretch; /* Faz com que os botões ocupem toda a largura */
+    }
+
+    .filter-button {
+        width: 100%; /* Botões ocupam 100% da largura da tela */
+    }
 }
 
 /* Rotação do ícone do chevron quando o menu está visível */
@@ -173,11 +192,16 @@ body {
 }
 
 .banner-placeholder {
-    width: calc(100% - 40px); /* Ajusta a largura para considerar a margem */
-    height: 320px; /* Altura de 320px */
-    background-color: #d3d3d3; /* Cor cinza claro */
-    position: relative; /* Posicionamento relativo (opcional, se precisar ajustar a posição) */
-    margin: 20px;
+    width: 100%; /* O container ocupa 100% da largura da tela */
+    display: flex;
+    justify-content: center; /* Centraliza a imagem horizontalmente */
+}
+
+.banner-placeholder img {
+    width: 100%; /* A imagem ocupa 100% da largura do container */
+    height: auto; /* Mantém a proporção da imagem */
+    max-width: 100%; /* Garante que a imagem não ultrapasse o tamanho do container */
+    object-fit: cover; /* Ajusta a imagem sem distorcer */
 }
 
 .grid-container {
@@ -324,27 +348,106 @@ p{
 }
 
 h3 {
-    margin-top: 0;
-    margin-top: 20px; /* Espaçamento entre o título e o conteúdo abaixo */
-    font-size: 24px; /* Ajuste o tamanho da fonte conforme necessário */
-    color: #333; /* Ajuste a cor conforme necessário */
+    margin-top: 20px;
+    font-size: 24px;
+    color: #333;
     margin-left: 20px;
 }
-  
+
+h4 {
+    margin-top: 0;
+    color: #555;
+    margin-left: 20px;
+}
+
+/* Media queries para diferentes tamanhos de tela */
+@media (max-width: 1200px) {
+    h3 {
+        font-size: 22px;
+    }
+    h4 {
+        font-size: 18px;
+    }
+}
+
+@media (max-width: 992px) {
+    h3 {
+        font-size: 20px;
+    }
+    h4 {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 768px) {
+    h3 {
+        font-size: 18px;
+    }
+    h4 {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 576px) {
+    h3 {
+        font-size: 16px;
+    }
+    h4 {
+        font-size: 12px;
+    }
+}
 
 .ads-sidebar {
-    background-color: #f0f0f0; /* Fundo para a barra de anúncios */
-    padding: 20px;
-    border-left: 2px solid #ddd; /* Separação visual entre conteúdo e ads */
-    border-radius: 8px;
+    width: 100%;
+    max-width: 250px; /* Reduz a largura máxima para 250px */
+    margin: 0 auto; /* Centraliza o conteúdo da sidebar */
+    padding: 10px;
 }
 
 .ad-space {
-    background-color: #e0e0e0;
-    border: 1px solid #ccc;
-    padding: 20px;
-    text-align: center;
-    margin-bottom: 20px; /* Espaço entre os anúncios */
+    margin-bottom: 15px; /* Diminui o espaçamento entre os ads */
+}
+
+.ad-space img {
+    width: 100%; /* Faz com que a imagem se ajuste à largura disponível */
+    height: auto; /* Ajusta a altura proporcionalmente */
+    object-fit: cover; /* Garante que a imagem não fique distorcida */
+    border-radius: 8px; /* Bordas arredondadas */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Para telas maiores */
+@media (min-width: 1024px) {
+    .ads-sidebar {
+        max-width: 220px; /* Largura ainda menor para telas grandes */
+    }
+
+    .ad-space img {
+        border-radius: 10px;
+    }
+}
+
+/* Para tablets ou telas medianas */
+@media (min-width: 768px) and (max-width: 1023px) {
+    .ads-sidebar {
+        max-width: 200px; /* Largura reduzida para tablets */
+    }
+
+    .ad-space img {
+        border-radius: 6px;
+    }
+}
+
+/* Para dispositivos móveis */
+@media (max-width: 767px) {
+    .ads-sidebar {
+        max-width: 180px; /* Largura reduzida para dispositivos móveis */
+        padding: 5px;
+    }
+
+    .ad-space img {
+        border-radius: 4px;
+    }
 }
 
 
@@ -403,23 +506,25 @@ h3 {
     gap: 20px; /* Espaçamento entre os grupos */
 }
 
-/* Estilização dos botões de filtro */
+/* Estilos base */
 .filters {
     display: flex;
-    gap: 15px; /* Espaçamento entre os botões de filtro */
+    flex-wrap: wrap; /* Para que os filtros quebrem para a próxima linha, se necessário */
+    gap: 10px; /* Espaço entre os filtros */
+    justify-content: space-between; /* Ajusta os filtros ao longo da largura disponível */
+    margin-bottom: 15px; /* Espaço entre os filtros e o conteúdo abaixo */
 }
 
 .filter-button {
-    padding: 5px 10px;
     background-color: transparent;
-    border: 1px solid #2E41DD;
     color: #2E41DD;
-    border-radius: 16px;
+    border: 1px solid #2E41DD;
+    padding: 10px;
+    border-radius: 15px;
     cursor: pointer;
-    font-size: 12px;
     display: flex;
     align-items: center;
-    gap: 8px;
+    gap: 5px; /* Espaço entre o texto e o ícone */
 }
 
 .filter-button:hover {
@@ -442,7 +547,7 @@ h3 {
     background-color: #CC415E;
     color: white;
     border: none;
-    border-radius: 20px;
+    border-radius: 15px;
     cursor: pointer;
     font-size: 16px;
 }
@@ -457,9 +562,20 @@ h3 {
 
 #areas-container {
     display: grid;
-    grid-template-columns: repeat(3, 1fr); /* 3 colunas */
+    grid-template-columns: repeat(3, 1fr); /* 3 colunas em telas grandes */
     gap: 20px; /* Espaçamento entre os cards */
-    padding: 20px;
+}
+
+@media (max-width: 768px) {
+    #areas-container {
+        grid-template-columns: repeat(2, 1fr); /* 2 colunas em telas menores */
+    }
+}
+
+@media (max-width: 480px) {
+    #areas-container {
+        grid-template-columns: 1fr; /* 1 coluna em telas muito pequenas */
+    }
 }
 
 .area-card {
@@ -472,7 +588,26 @@ h3 {
     padding: 10px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     overflow: hidden; /* Garante que conteúdo não vaze do card */
-    height: 250px; /* Define uma altura fixa para os cards */
+    min-height: 200px; /* Altura mínima para os cards */
+    height: auto; /* Para que os cards se ajustem */
+}
+
+@media (max-width: 1024px) {
+    .area-card {
+        min-height: 180px; /* Ajuste para telas médias */
+    }
+}
+
+@media (max-width: 768px) {
+    .area-card {
+        min-height: 160px; /* Ajuste para telas pequenas */
+    }
+}
+
+@media (max-width: 480px) {
+    .area-card {
+        min-height: 140px; /* Ajuste para telas muito pequenas */
+    }
 }
 
 .area-card:hover{
@@ -480,19 +615,50 @@ h3 {
 }
 
 .area-card img {
-    width: 100%; /* Faz a imagem ocupar toda a largura do card */
-    height: 200px; /* Define uma altura fixa */
+    width: 100%; /* A imagem ocupa toda a largura disponível */
+    height: auto; /* Ajusta a altura automaticamente para manter a proporção */
+    max-height: 200px; /* Limita a altura máxima da imagem */
     object-fit: cover; /* Garante que a imagem preencha o espaço sem distorção */
     border-radius: 8px; /* Bordas arredondadas no topo */
 }
 
+@media (max-width: 768px) {
+    .area-card img {
+        max-height: 160px; /* Altura menor para telas médias */
+    }
+}
+
+@media (max-width: 480px) {
+    .area-card img {
+        max-height: 120px; /* Altura menor para telas pequenas */
+    }
+}
+
 .area-card h2 {
-    font-size: 18px;
+    font-size: 18px; /* Tamanho padrão */
     color: #333;
     text-align: center;
-    margin: 10px 0 0 0; /* Espaço acima do título */
-    flex-shrink: 0; /* Garante que o título não encolha */
+    margin: 10px 0 0 0;
 }
+
+@media (max-width: 1024px) {
+    .area-card h2 {
+        font-size: 16px; /* Ajusta a fonte em telas menores */
+    }
+}
+
+@media (max-width: 768px) {
+    .area-card h2 {
+        font-size: 14px; /* Fonte menor em telas médias */
+    }
+}
+
+@media (max-width: 480px) {
+    .area-card h2 {
+        font-size: 12px; /* Fonte ainda menor em telas pequenas */
+    }
+}
+
 
 
 button.org-button {
@@ -518,3 +684,28 @@ button.account-button {
 button.account-button:hover {
     background-color: #1e2a9c;
 }
+
+#selected-filters {
+    margin-top: 10px; /* Espaçamento acima da lista de filtros selecionados */
+    display: flex;
+    flex-wrap: wrap; /* Faz com que os filtros quebrem linha se necessário */
+    gap: 10px; /* Adiciona espaçamento entre os filtros selecionados */
+    justify-content: flex-start; /* Alinha os filtros à esquerda */
+    padding: 0; /* Remove qualquer preenchimento */
+}
+
+.selected-filter {
+    background-color: transparent;
+    padding: 5px 10px;
+    border-radius: 15px;
+    border: 1px solid #CC415E;
+    color: #CC415E;
+    display: inline-block;
+    /* Remover margens */
+    margin: 0; /* Remove margens para garantir alinhamento */
+}
+
+.selected-filter + .selected-filter {
+    margin-left: 10px;
+}
+

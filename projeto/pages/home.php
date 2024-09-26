@@ -38,65 +38,74 @@
     <?php
     if (isset($_SESSION['usuario_logado'])) {
       ?>
+
       <div class="user-menu">
         <img src="../Images/profiles/avatar.png" alt="Foto de Perfil" class="profile-pic">
-        <span class="username"><?php echo implode(' ', array_slice(explode(' ', $_SESSION['usuario_logado']['nome']), 0, 2)); ?></span>        <button class="dropdown-btn">
+        <span class="username"><?php echo implode(' ', array_slice(explode(' ', $_SESSION['usuario_logado']['nome']), 0, 2)); ?></span> 
+        
+        <button class="dropdown-btn">
           <span class="material-symbols-outlined" style="color: #2E41DD;">expand_circle_down</span>
         </button>
+
         <ul class="dropdown-menu">
           <li><span class="material-symbols-rounded" style="color: #2E41DD;">school</span><a href="http://localhost/projeto/pages/areadoaluno/cursos_salvos.php">Área do Aluno</a></li>
           <li><span class="material-symbols-rounded" style="color: #2E41DD;">map</span><a href="http://localhost/projeto/pages/mapa.php">Localizar Cursos e Eventos</a></li>
           <li><span class="material-symbols-rounded" style="color: #2E41DD;">forward</span><a href="#">Sair</a></li>
         </ul>
+
       </div>
-      <?php
+
+      <?php 
     } else {
       ?>
+
       <div class="nav-buttons">
         <a href="http://localhost/projeto/pages/empresas/login-emp.php">
           <button class="org-button">Sou uma Organização</button>
         </a>
+        
         <a href="http://localhost/projeto/pages/login.php">
           <button class="account-button">Acessar Conta</button>
         </a>
       </div>
+
       <?php
     }
     ?>
   </div>
   </nav>
   
-  <div class="banner-placeholder"></div>
+  <div class="banner-placeholder">
+    <img src="http://localhost/projeto/Images/ads/Banner.png" alt="Banner">
+  </div>
   
   <div class="page-container">
-    <div class="main-content">
+    <div class="main-content">      
+        <div class="search-filters">
 
-      <div class="search-filters">
+          <div class="search-container">
 
-        <div class="search-container">
+            <h1>O que você quer aprender hoje?</h1>
 
-          <h1>O que você quer aprender hoje?</h1>
+            <div class="search-filter">
+              <span class="material-symbols-outlined" style="color: #2E41DD;">search</span>
+              <input type="text"placeholder="Busque eventos e cursos">
+            </div>
 
-          <div class="search-filter">
-            <span class="material-symbols-outlined" style="color: #2E41DD;">search</span>
-            <input type="text" placeholder="Busque eventos e cursos">
           </div>
-
-        </div>
-        
-        <div class="filters-container">
           
-          <div class="filters">
-
+          <div class="filters-container">
+            
+            <div class="filters">
             <div class="dropdown">
               <button class="filter-button">Data de início
-                <span class="material-symbols-rounded">expand_circle_down</span>
+                  <span class="material-symbols-rounded">expand_circle_down</span>
               </button>
 
               <div class="dropdown-content">
-                <a href="#">Hoje</a>
-                <a href="#">Esta Semana</a>
-                <a href="#">Este Mês</a>
+                  <a href="#"  data-filter="Hoje">Hoje</a>
+                  <a href="#"  data-filter="Esta Semana">Esta Semana</a>
+                  <a href="#"  data-filter="Este Mês">Este Mês</a>
               </div>
             </div>
 
@@ -106,8 +115,8 @@
               </button>
 
               <div class="dropdown-content">
-                <a href="#">Gratuito</a>
-                <a href="#">Pago</a>
+                <a href="#"   data-filter="gratuito">Gratuito</a>
+                <a href="#"  data-filter="pago">Pago</a>
               </div>
             </div>
 
@@ -115,37 +124,47 @@
               <button class="filter-button">Modalidade
                 <span class="material-symbols-rounded">expand_circle_down</span>
               </button>
-              
               <div class="dropdown-content">
-                <a href="#">Presencial</a>
-                <a href="#">Online</a>
-                <a href="#">Híbrido</a>
+                <a href="#" data-filter="Presencial">Presencial</a>
+                <a href="#" data-filter="Online">Online</a>
+                <a href="#" data-filter="Híbrido">Híbrido</a>
               </div>
             </div>
 
+            <!-- A div onde os filtros selecionados serão exibidos -->
+            <div id="selected-filters"></div>
           </div>
 
           <button class="filter-submit">Filtrar</button> <!-- Botão Filtrar -->
         </div>
+      
 
-      </div>
+    </div>
 
-      <h3>Escolha a área certa para você! </h3>
+      <h3>Nossas trilhas!</h3>
+      <h4>Escolha uma trilha (ou várias) e explore os cursos e eventos que ela tem a oferecer!</h4>
       <div id="areas-container"></div>
 
-      <h3>Cursos e eventos de nossos parceiros! </h3>
+      <h3>Só encontra aqui!</h3>
+      <h4>Ranking dos melhores cursos dessa semana dos nossos parceiros!</h4>
       <div id="courses-container"></div>
 
     </div>
 
-    <div class="ads-sidebar"><!--
-        <div class="ad-space">
-            
-        </div>
-        <div class="ad-space">
-            
-        </div>-->
+    <div class="ads-sidebar">
+      <div class="ad-space">
+        <img src="http://localhost/projeto/Images//ads/ads.png" alt="Descrição da imagem 1" class="ad-image">
+      </div>
+
+      <div class="ad-space">
+        <img src="http://localhost/projeto/Images/ads/ads2.png" alt="Descrição da imagem 2" class="ad-image">
+      </div>
+
+      <div class="ad-space">
+        <img src="http://localhost/projeto/Images/ads/banner1.png" alt="Descrição da imagem 3" class="ad-image">
+      </div>
     </div>
+
   </div>
 
   <script src="http://localhost/projeto/scripts/home.js"></script>

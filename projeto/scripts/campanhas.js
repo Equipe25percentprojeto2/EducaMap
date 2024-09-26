@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 const card = document.createElement('div');
                 card.className = 'card-campanha';
                 
-                card.innerHTML = `
+                card.innerHTML = `                                                      
                     <div class="image-section">
                         <img src="${curso.image}" alt="${curso.title}" />
                     </div>
