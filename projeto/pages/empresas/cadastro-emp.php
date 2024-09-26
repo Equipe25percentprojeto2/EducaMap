@@ -21,7 +21,7 @@
                 <h2>Bem-vindo!</h2>
                 <h3>Já possui uma conta?</h3>
                 </div>
-                <button class="btn-second" onclick="window.location.href='http:/projeto/pages/empresas/login-emp.php'">Entrar</button>
+                <button class="btn-second" onclick="window.location.href='http:/projeto/pages/empresas/login-emp.html'">Entrar</button>
             </div>
         </div>
 
@@ -55,7 +55,7 @@
                                 <label for="nome">CNPJ</label>
                                 <label class="label-required">(Campo obrigatório)
                             </div>
-                            <input type="text" id="cpf" name="cnpj" required maxlength="14" oninput="formatCPF(this)" required>
+                            <input type="text" id="cpf" name="cnpj">
                         </div>
 
                         <div class="form-item">
@@ -93,54 +93,58 @@
 
     
     <?php
-        include('conexao.php');
+    include('conexao.php');
+    
+    if (isset($_POST['submit'])) {
+        $nome = $_POST['nome'];
+        $cnpj = $_POST['cnpj'];
+        $endereco = $_POST['endereco'];
+        $telefone = $_POST['telefone'];
+        $email = $_POST['email'];
+        $senha = $_POST['pass'];
+        $stmt = $mysqli->prepare("SELECT COUNT(*) FROM empresas WHERE cnpj = ?");
+        $stmt->bind_param("s", $cnpj);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        $row = $result->fetch_row();
 
-        if (isset($_POST['submit'])) {
-            $nome = $_POST['nome'];
-            $cnpj = $_POST['cnpj'];
-            $endereco = $_POST['endereco'];
-            $telefone = $_POST['telefone'];
-            $email = $_POST['email'];
-            $senha = $_POST['pass'];
-
-            // Validate user input
-            if (empty($nome) || empty($cnpj) || empty($endereco) || empty($telefone) || empty($email) || empty($senha)) {
-                echo "Preencha todos os campos obrigatórios.";
-                exit();
-            }
-
-            if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-                echo "Formato de email inválido!";
-                exit();
-            }
-
-            // Check if CPF already exists
-            $stmt = $mysqli->prepare("SELECT COUNT(*) FROM empresas WHERE cnpj = ?");
-            $stmt->bind_param("s", $cnpj);
-            $stmt->execute();
-            $result = $stmt->get_result();
-            $row = $result->fetch_row();
-
-            if ($row[0] > 0) {
-                echo "<b style='color:red'>Essa empresa já existe.</b>";
-                exit();
-            }
-
-            // Hash password using a secure algorithm
-            $cripto = password_hash($senha, PASSWORD_ARGON2ID);
-
-            // Prepare and execute the query
-            $stmt = $mysqli->prepare("INSERT INTO empresas (nomempresa, cnpj, enderecoempresa, telefoneempresa, emailempresa, pass) VALUES (?, ?, ?, ?, ?, ?)");
-            $stmt->bind_param("ssssss", $nome, $cnpj, $endereco, $telefone, $email, $cripto);
-            if ($stmt->execute()) {
-                echo "<b style='color:green'>Empresa inserida com sucesso!</b>";
-                header("Location: login-emp.html"); // Redireciona para a página de login
-                exit();
-            } else {
-                var_dump($_POST);
-                echo "<b style='color:red'>Erro ao inserir empresa.</b>";
-            }
+        if ($row[0] > 0) {
+            echo "<b style='color:red'>Essa empresa já existe.</b>";
+            exit();
         }
+        // Verifica se os campos estão vazios
+        if (empty($nome) || empty($cnpj) || empty($endereco) || empty($telefone) || empty($email) || empty($senha)) {
+            echo "Preencha todos os campos obrigatórios.";
+            exit();
+        }
+
+        // Verifica se o CNPJ é válido
+        
+
+        // Verifica se o e-mail é válido
+        if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+            echo "E-mail inválido.";
+            exit();
+        }
+
+        // Cria uma senha segura
+        $senha_segura = password_hash($senha, PASSWORD_DEFAULT);
+
+        // Insere os dados no banco de dados
+        $query = "INSERT INTO empresas (nomempresa, cnpj, enderecoempresa, telefoneempresa, emailempresa, pass) VALUES (?, ?, ?, ?, ?, ?)";
+        $stmt = $mysqli->prepare($query);
+        $stmt->bind_param("ssssss", $nome, $cnpj, $endereco, $telefone, $email, $senha_segura);
+        $stmt->execute();
+
+        // Verifica se os dados foram inseridos com sucesso
+        if ($stmt->affected_rows > 0) {
+            echo "Cadastro realizado com sucesso!";
+        } else {
+            echo "Erro ao realizar cadastro.";
+        }
+    }
+
+    
 ?>
 </body>
 

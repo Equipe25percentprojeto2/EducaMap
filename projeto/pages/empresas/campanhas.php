@@ -84,7 +84,51 @@
       <a href="http://localhost/projeto/pages/empresas/cadastro-curso.php" class="add-campanha">Adicionar Campanhas</a>
     </div>
 
-    <div id="campanhas-container"></div>
+    <div id="campanhas-container">
+        
+    <?php
+    // Conexão com o banco de dados
+    include('conexao.php');
+
+    // Query para buscar as campanhas
+    $query = "SELECT * FROM cursos WHERE cnpj = '".$_SESSION['usuario_logado']['cnpj']."'";
+    $result = $mysqli->query($query);
+
+    // Loop para exibir as campanhas
+    while ($curso = $result->fetch_assoc()) {
+        ?>
+        <div class="card-campanha">
+        <div class="image-section">
+                        <img src="<?php echo 'localhost/' .  $curso['banner']; ?>" alt="<?php echo$curso['nomecurso']?>" />
+                    </div>
+                    <div class="info-section">
+                        <h2><?php echo$curso['nomecurso']?></h2>
+
+                        <div class="date-time">
+                            <span class="material-symbols-rounded">schedule</span> 
+                        </div>
+
+                        <div class="actions">
+                            <span class="material-symbols-rounded">favorite</span>
+                            <span class="material-symbols-rounded">chat</span>
+                            <span class="material-symbols-rounded">bookmark</span> 
+                        </div>
+
+                        <div class="created-date">
+                            <span>Criado em: <?php echo$curso['datainicio']?> ás <?php echo$curso['horainicio']?></span>
+                        </div>
+
+                        <div class="buttons">
+                            <button class="btn-red">Editar Informações</button>
+                            <button class="btn-outlined-blue">Visualizar Insights</button>
+                            <button class="btn-outlined-blue">Mais Opções</button>
+                        </div>
+                    </div>
+        </div>
+        <?php
+    }
+    ?>
+</div>
   </div>
 
   <!--<script src="http://localhost/projeto/scripts/sidebar-emp.js"></script>-->
