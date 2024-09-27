@@ -18,7 +18,7 @@ fetch('http://localhost/projeto/cursos.json')
             courseCard.innerHTML = `
                 <img src="${course.image}" alt="${course.title}">
                 <h2>${course.title}</h2>
-
+                
                 <div class="card-info">
                     <span class="material-icons">schedule</span>
                     <p>${formattedDate} - ${course.time}</p>

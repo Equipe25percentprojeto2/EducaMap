@@ -123,23 +123,7 @@ body {
     border: none;
 }
 
-.dropdown-menu {
-    max-height: 0; /* Define altura inicial zero */
-    overflow: hidden; /* Esconde o conteúdo que ultrapassa o limite de altura */
-    visibility: hidden; /* Deixa o dropdown invisível */
-    opacity: 0; /* Torna o menu invisível visualmente */
-    transition: max-height 1s ease, opacity 1s ease, visibility 1s ease; /* Animação da altura */
-    position: absolute;
-    right: 0;
-    top: 100%;
-    background-color: white;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
-    list-style: none;
-    padding: 10px;
-    width: 200px;
-    z-index: 10;
-}
+
 
 /* Mostra o dropdown quando ativo */
 .show-dropdown {
@@ -368,6 +352,17 @@ h4 {
     h4 {
         font-size: 18px;
     }
+}
+
+.dropdown-menu {
+    display: none; /* Oculta o menu por padrão */
+    position: absolute; /* Para posicionar o menu abaixo do botão */
+    background-color: white; /* Cor de fundo do menu */
+    z-index: 1000; /* Para que o menu fique acima de outros elementos */
+}
+
+.dropdown-menu.show {
+    display: block; /* Mostra o menu quando a classe 'show' está presente */
 }
 
 @media (max-width: 992px) {
@@ -707,5 +702,11 @@ button.account-button:hover {
 
 .selected-filter + .selected-filter {
     margin-left: 10px;
+}
+.dropdown-menu {
+    display: none; /* Oculta o menu por padrão */
+    position: absolute; /* Para posicionar o menu abaixo do botão */
+    background-color: white; /* Cor de fundo do menu */
+    z-index: 1000; /* Para que o menu fique acima de outros elementos */
 }
 

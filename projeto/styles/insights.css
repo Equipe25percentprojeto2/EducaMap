@@ -1,0 +1,69 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0; /* Remover margens do body */
+    padding: 0; /* Remover padding do body */
+}
+
+.page-layout {
+    display: flex; /* Usando Flexbox */
+}
+
+.sidebar {
+    width: 250px; /* Largura da sidebar */
+    background-color: #f0f0f0; /* Cor de fundo da sidebar */
+    padding: 20px; /* Padding interno */
+    flex-shrink: 0; /* Impede a sidebar de encolher em telas menores */
+    width: 12%; /* Em vez de uma largura fixa, usa um percentual */
+    /* Adicione mais estilos conforme necessário */
+}
+
+.title-insights{
+    font-size: 40px;
+    margin-bottom: 20px;
+}
+
+.insights-container {
+    margin-left: 320px; /* Margem à esquerda para afastar da sidebar */
+    padding: 20px; /* Padding interno */
+    background-color: #fff; /* Cor de fundo do container de insights */
+    flex: 1; /* O container de insights ocupará o espaço restante */
+    /* Adicione mais estilos conforme necessário */
+}
+
+.insights-container h3 {
+    font-size: 24px; /* Tamanho da fonte */
+    color: #000; /* Cor do texto */
+    text-align: left; /* Centralizar o texto */
+    margin-top: 15px;
+}
+
+.grafico-container h4{
+    font-size: 20px;
+    margin-bottom: 10px;
+    font-family: 'Poppins', sans-serif; /* Aplica a fonte Poppins a todo o corpo */
+    color: #000;
+}
+
+.grafico-container h3{
+    font-size: 30px;
+}
+
+.grafico-container {
+    width: 50%; /* Reduza a largura desejada para os gráficos */
+    height: auto; /* Reduza a altura desejada para os gráficos */
+    margin-bottom: 10px; /* Espaço entre os gráficos */
+    overflow: hidden; /* Impede o conteúdo de ultrapassar o contêiner */
+    border: 1px solid #ccc;
+    background-color: #eee;
+    border-radius: 15px;
+    padding: 10px;
+}
+
+/* Define tamanhos fixos para o canvas */
+canvas {
+    width: 100% !important; /* 100% da largura do contêiner */
+    height: 100% !important; /* 100% da altura do contêiner */
+    margin-bottom: 10px;
+}

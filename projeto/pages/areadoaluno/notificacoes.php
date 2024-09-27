@@ -27,7 +27,7 @@
 
         <div class="user-menu">
 
-            <img src="http://localhost/projeto/Images/profiles/avatar.png" alt="Foto de Perfil" class="profile-pic">
+            <img src="http://localhost/projehttp://localhost/projeto/Images/profiles/user.png" alt="Foto de Perfil" class="profile-pic">
             <span class="username">Rosália de Castro</span>
 
             <button class="dropdown-btn">
